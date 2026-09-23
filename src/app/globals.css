@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+/* ========================================================================= */
+/* STRIPE OFFICIAL ENTERPRISE TYPOGRAPHY SUITE: SÖHNE + SF PRO DISPLAY       */
+/* ========================================================================= */
+/* Söhne Var Aliases for Stripe Visual Fidelity */
+@font-face {
+  font-family: 'sohne-var';
+  src: url('/sohne-font-family/TestSohne-Buch-BF663d89cd32e6a.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'sohne-var';
+  src: url('/sohne-font-family/TestSohne-Kraftig-BF663d89cd37e26.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'sohne-var';
+  src: url('/sohne-font-family/TestSohne-Halbfett-BF663d89cd2d67b.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'sohne-var';
+  src: url('/sohne-font-family/TestSohne-Dreiviertelfett-BF663d89ccc5f66.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'sohne-var';
+  src: url('/sohne-font-family/TestSohne-Fett-BF663d89cca89ff.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Söhne Primary Brand Font */
+@font-face {
+  font-family: 'Sohne';
+  src: url('/sohne-font-family/TestSohne-Buch-BF663d89cd32e6a.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/sohne-font-family/TestSohne-Kraftig-BF663d89cd37e26.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/sohne-font-family/TestSohne-Halbfett-BF663d89cd2d67b.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/sohne-font-family/TestSohne-Dreiviertelfett-BF663d89ccc5f66.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/sohne-font-family/TestSohne-Fett-BF663d89cca89ff.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/sf-pro-display/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/sf-pro-display/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/sf-pro-display/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne Mono';
+  src: url('/sohne-font-family/TestSohneMono-Buch-BF663d89cbcec64.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne Mono';
+  src: url('/sohne-font-family/TestSohneMono-Halbfett-BF663d89cc69f9d.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne Mono';
+  src: url('/sohne-font-family/TestSohneMono-Fett-BF663d89cc6a8e8.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "sohne-var", "SF Pro Display", sans-serif;
+  --font-mono: 'Sohne Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  body {
+    font-family: "sohne-var", "SF Pro Display", sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-canvas);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: "sohne-var", "SF Pro Display", sans-serif;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'Sohne Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  }
+}
+:root {
+  --stripe-blurple: #533AFD;
+  --stripe-blurple-hover: #432DE0;
+  --stripe-blurple-subtle: rgba(83, 58, 253, 0.08);
+  --stripe-blurple-border: #B9B9F9;
+  --stripe-navy: #0D1738;
+  --stripe-slate: #425466;
+  --stripe-muted: #727F96;
+  --stripe-border: #E3E8EE;
+  --stripe-border-subtle: #F0F4F8;
+  --stripe-panel: #F6F9FC;
+  --stripe-canvas: #F8FAFC;
+  --stripe-surface: #FFFFFF;
+  --stripe-blush: #FFE0EF;
+  --stripe-green: #00D924;
+  --stripe-green-dark: #057A55;
+
+  --color-canvas: var(--stripe-canvas);
+  --color-surface: var(--stripe-surface);
+  --color-panel-subtle: var(--stripe-panel);
+  --color-border: var(--stripe-border);
+  --color-border-subtle: var(--stripe-border-subtle);
+  --color-text-primary: var(--stripe-navy);
+  --color-text-secondary: var(--stripe-slate);
+  --color-text-muted: var(--stripe-muted);
+  --color-accent: var(--stripe-blurple);
+  --color-accent-hover: var(--stripe-blurple-hover);
+  --color-accent-subtle: var(--stripe-blurple-subtle);
+  --color-accent-border: var(--stripe-blurple-border);
+}
+.dark {
+  --stripe-blurple: #7A68FF;
+  --stripe-blurple-hover: #9283FF;
+  --stripe-blurple-subtle: rgba(122, 104, 255, 0.12);
+  --stripe-blurple-border: #4D40B8;
+  --stripe-navy: #F6F9FC;
+  --stripe-slate: #ADBDCC;
+  --stripe-muted: #68778D;
+  --stripe-border: #232B3E;
+  --stripe-border-subtle: #1B2232;
+  --stripe-panel: #141A28;
+  --stripe-canvas: #0A0D14;
+  --stripe-surface: #101522;
+  --stripe-blush: rgba(255, 224, 239, 0.15);
+  --stripe-green: #00D924;
+  --stripe-green-dark: #10B981;
+
+  --color-canvas: var(--stripe-canvas);
+  --color-surface: var(--stripe-surface);
+  --color-panel-subtle: var(--stripe-panel);
+  --color-border: var(--stripe-border);
+  --color-border-subtle: var(--stripe-border-subtle);
+  --color-text-primary: var(--stripe-navy);
+  --color-text-secondary: var(--stripe-slate);
+  --color-text-muted: var(--stripe-muted);
+  --color-accent: var(--stripe-blurple);
+  --color-accent-hover: var(--stripe-blurple-hover);
+  --color-accent-subtle: var(--stripe-blurple-subtle);
+  --color-accent-border: var(--stripe-blurple-border);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
