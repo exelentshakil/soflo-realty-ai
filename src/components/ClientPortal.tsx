@@ -657,15 +657,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                         PENDING
                       </span>
                       <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
-                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                        <span className="text-2xl font-extrabold text-[var(--color-text-primary)] tracking-tight font-sans">
                           {market.pending}
                         </span>
                         {(market as any).changePend ? (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-100/60 dark:border-emerald-900/30 rounded-[3px] shrink-0">
                             {(market as any).changePend}
                           </span>
                         ) : (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-100/60 dark:border-slate-700/60 rounded-[3px] shrink-0">
                             Stable
                           </span>
                         )}
@@ -680,15 +680,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                         RENTALS
                       </span>
                       <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
-                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                        <span className="text-2xl font-extrabold text-[var(--color-text-primary)] tracking-tight font-sans">
                           {market.forRent}
                         </span>
                         {(market as any).changeRent ? (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-100/60 dark:border-slate-700/60 rounded-[3px] shrink-0">
                             {(market as any).changeRent}
                           </span>
                         ) : (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-100/60 dark:border-slate-700/60 rounded-[3px] shrink-0">
                             Stable
                           </span>
                         )}
@@ -699,15 +699,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                         SOLD
                       </span>
                       <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
-                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                        <span className="text-2xl font-extrabold text-[var(--color-text-primary)] tracking-tight font-sans">
                           {market.sold}
                         </span>
                         {(market as any).changeSold ? (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-100/60 dark:border-emerald-900/30 rounded-[3px] shrink-0">
                             {(market as any).changeSold}
                           </span>
                         ) : (
-                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-100/60 dark:border-slate-700/60 rounded-[3px] shrink-0">
                             Stable
                           </span>
                         )}
@@ -717,7 +717,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 </div>
 
                 {/* Submarket Action Trigger */}
-                <div className="pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-[9px] font-mono uppercase text-slate-500 group-hover:text-slate-900 transition-colors">
+                <div className="pt-3.5 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between text-[9px] font-mono uppercase text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                   <span>CONFIDENTIAL METRICS</span>
                   <button
                     onClick={onOpenConcierge}
@@ -734,7 +734,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* OVERHAULED: About Valeria Editorial Biography (Premium Widescreen Grid Layout) */}
-      <section id="about" className="py-28 max-w-6xl mx-auto px-4 scroll-mt-16 bg-[#FCFBFA]">
+      <section id="about" className="py-28 max-w-6xl mx-auto px-4 scroll-mt-16 bg-[#FCFBFA] dark:bg-[var(--color-panel-subtle)] transition-colors duration-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-12 lg:gap-16">
 
           {/* Left Column: Mighty Tall Widescreen Portrait Frame */}
@@ -748,7 +748,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               {/* Subtle luxury vignette gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
-                <Badge className="bg-[#111827]/90 backdrop-blur-md text-[#E31B23] border border-[#E31B23]/20 text-[8.5px] font-mono tracking-widest uppercase px-3 py-1 font-bold">
+                <Badge className="bg-[#111827]/90 dark:bg-slate-900/90 backdrop-blur-md text-[#E31B23] border border-[#E31B23]/20 text-[8.5px] font-mono tracking-widest uppercase px-3 py-1 font-bold">
                   Active Advisor
                 </Badge>
               </div>
@@ -759,42 +759,42 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2">
-                <Badge className="bg-[#111827]/5 text-[#111827] border-slate-200 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
+                <Badge className="bg-[#111827]/5 dark:bg-white/5 text-[#111827] dark:text-slate-200 border-slate-200 dark:border-slate-800 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
                   The Agency South Florida
                 </Badge>
-                <Badge className="bg-slate-100 text-slate-800 border-slate-200 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
+                <Badge className="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
                   EN · RU · UK
                 </Badge>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[#111827] uppercase tracking-tight leading-none font-sans">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#111827] dark:text-white uppercase tracking-tight leading-none font-sans">
                 Valeria Afanasieva
               </h2>
-              <p className="text-[11px] text-[#475569] font-mono uppercase tracking-widest font-bold border-b border-slate-100 pb-4">
+              <p className="text-[11px] text-[#475569] dark:text-slate-400 font-mono uppercase tracking-widest font-bold border-b border-slate-100 dark:border-slate-800/60 pb-4">
                 Real Estate Associate · Global Luxury Advisory Services
               </p>
             </div>
 
             {/* Direct Work-iCloud Contact Bar */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 text-[13px] font-mono">
-              <div className="flex items-center gap-2.5 p-3 rounded-md bg-white border border-slate-200 shadow-3xs">
+              <div className="flex items-center gap-2.5 p-3 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-3xs">
                 <Mail className="h-4 w-4 text-slate-400 shrink-0" />
-                <a href="mailto:valeria25.12@icloud.com" className="text-[#111827] font-bold hover:text-[#E31B23] transition-colors truncate">
+                <a href="mailto:valeria25.12@icloud.com" className="text-[#111827] dark:text-slate-100 font-bold hover:text-[#E31B23] transition-colors truncate">
                   valeria25.12@icloud.com
                 </a>
               </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-md bg-white border border-slate-200 shadow-3xs">
+              <div className="flex items-center gap-2.5 p-3 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-3xs">
                 <Phone className="h-4 w-4 text-slate-400 shrink-0" />
-                <a href="tel:+17542927012" className="text-[#111827] font-bold hover:text-[#E31B23] transition-colors">
+                <a href="tel:+17542927012" className="text-[#111827] dark:text-slate-100 font-bold hover:text-[#E31B23] transition-colors">
                   +1 (754) 292-7012
                 </a>
               </div>
             </div>
 
             {/* Biography Copy */}
-            <div className="space-y-5 text-[14.5px] text-[#374151] leading-relaxed font-normal font-sans">
+            <div className="space-y-5 text-[14.5px] text-[#374151] dark:text-slate-300 leading-relaxed font-normal font-sans">
               <p>
-                Delve into the vibrant realm of Miami and Fort Lauderdale real estate, and one name inevitably shines bright – <span className="font-bold text-[#111827]">Valeria Afanasieva</span>. Partnering with <span className="font-bold text-[#111827]">The Agency</span>, Valeria has established herself as the definitive expert in pre-construction sales in South Florida's most sought-after locales.
+                Delve into the vibrant realm of Miami and Fort Lauderdale real estate, and one name inevitably shines bright – <span className="font-bold text-[#111827] dark:text-white">Valeria Afanasieva</span>. Partnering with <span className="font-bold text-[#111827] dark:text-white">The Agency</span>, Valeria has established herself as the definitive expert in pre-construction sales in South Florida's most sought-after locales.
               </p>
               <p>
                 Valeria's association with The Agency isn't just about a brand or a name. It's about synergy. Together, they bring to the table a harmonious blend of in-depth local insights, extensive market research, and cutting-edge sales strategies, all tailored to ensure clients receive not just a property, but a future home or investment that aligns perfectly with their visions and aspirations.
@@ -805,16 +805,16 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </div>
 
             <div className="pt-2 flex flex-wrap gap-3">
-              <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-slate-500" />
+              <span className="flex items-center gap-1.5 text-xs text-[#111827] dark:text-slate-200 font-bold font-sans">
+                <CheckCircle2 className="h-4 w-4 text-slate-500 dark:text-slate-400" />
                 <span>Pre-Construction</span>
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-slate-500" />
+              <span className="flex items-center gap-1.5 text-xs text-[#111827] dark:text-slate-200 font-bold font-sans">
+                <CheckCircle2 className="h-4 w-4 text-slate-500 dark:text-slate-400" />
                 <span>Waterfront Estates</span>
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-slate-500" />
+              <span className="flex items-center gap-1.5 text-xs text-[#111827] dark:text-slate-200 font-bold font-sans">
+                <CheckCircle2 className="h-4 w-4 text-slate-500 dark:text-slate-400" />
                 <span>Off-Market Placement</span>
               </span>
             </div>
@@ -822,12 +822,12 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             <div className="pt-4 flex items-center gap-4">
               <Button
                 onClick={onOpenConcierge}
-                className="h-11 px-6 bg-[#111827] hover:bg-[#1f2937] text-white text-[11px] font-mono font-bold tracking-wider uppercase rounded-[3px] cursor-pointer flex items-center justify-center gap-2 shadow-sm"
+                className="h-11 px-6 bg-[#111827] hover:bg-[#1f2937] dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 text-white text-[11px] font-mono font-bold tracking-wider uppercase rounded-[3px] cursor-pointer flex items-center justify-center gap-2 shadow-sm"
               >
-                <MessageSquare className="h-4 w-4 text-white" />
+                <MessageSquare className="h-4 w-4 text-white dark:text-slate-900" />
                 <span>Consult Her Office</span>
               </Button>
-              <div className="flex items-center gap-2 text-[10.5px] text-[#475569] font-mono uppercase tracking-wider font-semibold">
+              <div className="flex items-center gap-2 text-[10.5px] text-[#475569] dark:text-slate-400 font-mono uppercase tracking-wider font-semibold">
                 <Award className="h-5 w-5 text-slate-400 shrink-0" />
                 <span>Top-Tier Placement Advisor</span>
               </div>
@@ -842,14 +842,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         {showWelcomeBubble && (
           <div
             onClick={onOpenConcierge}
-            className="relative bg-white rounded-lg border border-slate-200 p-4 shadow-2xl text-left animate-in fade-in slide-in-from-bottom-4 duration-300 cursor-pointer hover:border-slate-300 transition-all"
+            className="relative bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 p-4 shadow-2xl text-left animate-in fade-in slide-in-from-bottom-4 duration-300 cursor-pointer hover:border-slate-300 dark:hover:border-slate-700 transition-all"
           >
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setShowWelcomeBubble(false);
               }}
-              className="absolute top-2.5 right-2.5 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+              className="absolute top-2.5 right-2.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -857,29 +857,29 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <span className="text-[9px] font-mono font-bold text-[#E31B23] uppercase tracking-widest block">
                 Valeria's Associate
               </span>
-              <p className="text-[12.5px] text-slate-800 leading-relaxed font-sans font-normal">
+              <p className="text-[12.5px] text-slate-800 dark:text-slate-200 leading-relaxed font-sans font-normal">
                 Hi! Looking for a beachfront estate or off-market penthouse? Let me help you select prime enclaves and book showing calendars.
               </p>
-              <div className="text-[10px] font-mono font-bold text-slate-900 flex items-center gap-1">
+              <div className="text-[10px] font-mono font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1">
                 <span>Start Confidential Chat</span>
                 <span className="text-[#E31B23] font-sans">&rarr;</span>
               </div>
             </div>
             {/* Speech bubble arrow */}
-            <div className="absolute right-6 bottom-[-6px] w-3 h-3 bg-white border-r border-b border-slate-200 rotate-[45deg]" />
+            <div className="absolute right-6 bottom-[-6px] w-3 h-3 bg-white dark:bg-slate-900 border-r border-b border-slate-200 dark:border-slate-800 rotate-[45deg]" />
           </div>
         )}
 
         <button
           onClick={onOpenConcierge}
-          className="relative h-16 w-16 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white hover:border-[#E31B23]/50 overflow-hidden cursor-pointer group shrink-0"
+          className="relative h-16 w-16 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white dark:border-slate-900 hover:border-[#E31B23]/50 overflow-hidden cursor-pointer group shrink-0"
         >
           <img
             src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
             alt="Valeria Assistant Avatar"
             className="w-full h-full object-cover object-top filter contrast-[1.02] group-hover:scale-102 transition-transform duration-500"
           />
-          <span className="absolute bottom-0.5 right-0.5 h-4 w-4 rounded-full bg-[#00D924] border-2 border-white animate-pulse" />
+          <span className="absolute bottom-0.5 right-0.5 h-4 w-4 rounded-full bg-[#00D924] border-2 border-white dark:border-slate-900 animate-pulse" />
         </button>
       </div>
 
