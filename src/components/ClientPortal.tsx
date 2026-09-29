@@ -43,14 +43,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-[#FAF9F6]" />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center space-y-6">
-          <Badge className="bg-[#FAF9F6]/10 hover:bg-[#FAF9F6]/15 text-white border-white/20 px-3 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md">
+          <Badge className="bg-[#FAF9F6]/10 hover:bg-[#FAF9F6]/15 text-white border-white/20 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md">
             South Florida Luxury Estate Portfolio
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-serif text-white font-normal tracking-tight leading-none drop-shadow-md">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none drop-shadow-md text-white uppercase font-sans">
             Premium Beachfront Residences
           </h1>
           <p className="text-sm md:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed font-sans drop-shadow-xs font-light">
-            Discover hand-selected penthouses and architectural masterpieces curated across Sunny Isles, Brickell, and Coral Gables, fully indexed for real-time generative search engine recommendation.
+            Discover hand-selected penthouses and architectural masterpieces curated across Sunny Isles, Brickell, and Coral Gables, fully prepared for immediate private consultation.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -58,7 +58,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               className="w-full sm:w-auto h-11 px-6 bg-[#C5A880] hover:bg-[#B3966E] text-white text-[12px] font-mono font-bold tracking-wider uppercase rounded-[4px] shadow-lg hover:scale-[1.01] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <MessageSquare className="h-4 w-4 text-white" />
-              <span>Consult AI Concierge</span>
+              <span>Consult Valeria's Office</span>
             </Button>
             <a
               href="#portfolio"
@@ -71,7 +71,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         </div>
       </div>
 
-      {/* Floating Value Deck Quick Navigation */}
+      {/* Floating Value Deck Quick Navigation (Scrubbed of Tech/Developer Jargon) */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-[#C5A880]/30 bg-white shadow-xl">
           <div className="p-4 rounded-md hover:bg-[#FAF9F6] transition-colors flex items-start gap-4">
@@ -79,9 +79,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <Compass className="h-5 w-5" />
             </div>
             <div className="space-y-1 text-left">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">GEO Discovery</h3>
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">Bespoke Matching</h3>
               <p className="text-[11.5px] text-[#556B69] leading-relaxed font-light">
-                Fully structured listings indexed automatically to rank Valeria's assets as the primary recommendations inside ChatGPT and Perplexity Search.
+                Direct, confidential access to Miami's most exclusive off-market listings, custom sky penthouses, and premier pre-construction developments.
               </p>
             </div>
           </div>
@@ -90,9 +90,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <Shield className="h-5 w-5" />
             </div>
             <div className="space-y-1 text-left">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">Verified POF Gate</h3>
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">Private Representation</h3>
               <p className="text-[11.5px] text-[#556B69] leading-relaxed font-light">
-                Secure sandbox interfaces automatically verify proof of funds to pre-qualify high-intent buyers before booking in-person showings.
+                Uncompromising privacy and institutional-grade discretion for high-net-worth individuals, family offices, and international entities.
               </p>
             </div>
           </div>
@@ -101,9 +101,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <TrendingUp className="h-5 w-5" />
             </div>
             <div className="space-y-1 text-left">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">GoHighLevel SLA</h3>
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0A2E2B]">On-Demand Showings</h3>
               <p className="text-[11.5px] text-[#556B69] leading-relaxed font-light">
-                Leads transfer directly to Valeria's CRM in under 5 seconds, initiating customized SMS responses and private agent notifications.
+                Seamless coordination for private helicopter charters, luxury ground transport, or deep-water yacht docking directly at candidate estates.
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#C5A880]">
             Curated Selection
           </span>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal text-[#0A2E2B]">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2E2B] uppercase tracking-tight">
             Featured Elite Developments
           </h2>
           <p className="text-xs md:text-sm text-[#556B69] leading-relaxed font-light">
@@ -141,7 +141,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   {listing.neighborhood}
                 </Badge>
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                  <span className="text-white font-serif text-xl leading-tight">
+                  <span className="text-white font-extrabold text-xl tracking-tight uppercase">
                     {listing.name}
                   </span>
                   <span className="text-white font-mono text-[11px] font-bold bg-[#C5A880]/90 backdrop-blur-sm px-2.5 py-0.5 rounded-[2px]">
@@ -200,7 +200,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#C5A880]">
               Prime Submarkets
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-normal text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-tight">
               Miami Waterfront Submarkets
             </h2>
             <p className="text-xs md:text-sm text-[#A6C0BE] leading-relaxed font-light">
@@ -219,7 +219,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 />
               </div>
               <div className="space-y-2">
-                <h3 className="font-serif text-lg text-white">Sunny Isles Beach</h3>
+                <h3 className="font-extrabold text-lg text-white uppercase tracking-tight">Sunny Isles Beach</h3>
                 <p className="text-[12px] text-[#A6C0BE] leading-relaxed font-light">
                   Known as Miami's Riviera, a thin peninsula of luxury skyscrapers providing unobstructed Atlantic views, private beaches, and robust privacy.
                 </p>
@@ -240,7 +240,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 />
               </div>
               <div className="space-y-2">
-                <h3 className="font-serif text-lg text-white">Brickell Financial Sector</h3>
+                <h3 className="font-extrabold text-lg text-white uppercase tracking-tight">Brickell Financial Sector</h3>
                 <p className="text-[12px] text-[#A6C0BE] leading-relaxed font-light">
                   The financial capital of the South. A vibrant, walk-to-work district presenting vertical sky mansions, premium dining, and architectural penthouses.
                 </p>
@@ -261,7 +261,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 />
               </div>
               <div className="space-y-2">
-                <h3 className="font-serif text-lg text-white">Coral Gables Estates</h3>
+                <h3 className="font-extrabold text-lg text-white uppercase tracking-tight">Coral Gables Estates</h3>
                 <p className="text-[12px] text-[#A6C0BE] leading-relaxed font-light">
                   A historic residential enclave offering Spanish-colonial architecture, private deep-water yacht canals, and quiet institutional prestige.
                 </p>
@@ -275,18 +275,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         </div>
       </section>
 
-      {/* Section 3: Valeria Profile & GEO Integration */}
+      {/* Section 3: Valeria Profile (Scrubbed of Tech/Developer Jargon) */}
       <section id="about" className="py-24 max-w-5xl mx-auto px-4 scroll-mt-16">
         <div className="rounded-lg border border-[#C5A880]/20 bg-white p-6 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-14 shadow-xs">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-sm overflow-hidden shrink-0 border border-[#C5A880]/20 shadow-sm relative bg-slate-100">
             <img
-              src="/headshot.jpeg"
+              src="https://images.pexels.com/photos/3775119/pexels-photo-3775119.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Valeria Afanasieva"
               className="w-full h-full object-cover"
-              onError={(e) => {
-                // Fallback if local headshot missing
-                e.currentTarget.src = 'https://images.pexels.com/photos/7031408/pexels-photo-7031408.jpeg?auto=compress&cs=tinysrgb&w=400';
-              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
@@ -296,7 +292,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <Badge className="bg-[#0A2E2B]/5 hover:bg-[#0A2E2B]/10 text-[#0A2E2B] border-[#C5A880]/30 text-[9px] font-mono uppercase tracking-widest px-2.5 py-0.5">
                 Principal Advisory Services
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-serif font-normal text-[#0A2E2B] leading-tight">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2E2B] uppercase tracking-tight">
                 Valeria Afanasieva
               </h2>
               <p className="text-[10.5px] text-[#C5A880] font-mono uppercase tracking-wider">
@@ -304,8 +300,8 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               </p>
             </div>
 
-            <p className="text-[12.5px] text-[#556B69] leading-relaxed font-light">
-              With a background in capital relocations and bespoke asset positioning, Valeria leverages data science to index luxury listings directly where today's elite buyers search. While legacy brokerages rely on traditional portals, Valeria deploys custom Generative Engine Optimization (GEO) structured markups. This ensures her client portfolios are recommended first and cited as primary waterfront options within conversational models on ChatGPT Search, Google Gemini, and Perplexity AI.
+            <p className="text-[12.5px] text-[#556B69] leading-relaxed font-light font-sans">
+              With an elite track record in wealth relocations, off-market acquisitions, and luxury advisory, Valeria Afanasieva represents South Florida's most prestigious beachfront properties. Known for her uncompromising work ethic, local market mastery, and bespoke client advisory, Valeria ensures each property in her portfolio receives unparalleled placement. Her private client office provides a seamless, end-to-end concierge experience for buyers, renters, and international investors seeking to secure prime coastal assets in Miami.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2">
@@ -313,7 +309,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 $42M+ Closed Volume
               </Badge>
               <Badge variant="outline" className="text-[9.5px] font-mono border-[#C5A880]/30 text-[#0A2E2B] px-2.5 py-0.5 uppercase tracking-wider">
-                Generative Search Optimized
+                Beachfront Representation
               </Badge>
               <Badge variant="outline" className="text-[9.5px] font-mono border-[#C5A880]/30 text-[#0A2E2B] px-2.5 py-0.5 uppercase tracking-wider">
                 Bespoke Client Advisory
@@ -326,7 +322,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 className="h-10 px-5 bg-[#0A2E2B] hover:bg-[#134441] text-white text-[10.5px] font-mono font-bold tracking-wider uppercase rounded-[3px] cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <MessageSquare className="h-4 w-4 text-[#C5A880]" />
-                <span>Consult Her Virtual Office</span>
+                <span>Consult Her Office</span>
               </Button>
             </div>
           </div>
