@@ -180,10 +180,10 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
   ];
 
   return (
-    <div className="relative w-full bg-[#FCFBFA] text-[#111827] overflow-x-hidden font-sans">
+    <div className="relative w-full bg-[var(--color-canvas)] text-[var(--color-text-primary)] overflow-x-hidden font-sans">
 
       {/* Cinematic Drone Video Hero Section */}
-      <div className="relative w-full h-[85vh] overflow-hidden flex items-center justify-center bg-[#FCFBFA]">
+      <div className="relative w-full h-[85vh] overflow-hidden flex items-center justify-center bg-[var(--color-canvas)]">
         <video
           ref={videoRef}
           autoPlay
@@ -196,16 +196,16 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
           <source src={mediaConfig.ambientVideo.videoUrl} type="video/mp4" />
         </video>
         {/* Lighter, ultra-premium frosted white and airy overlay to blend with light default theme */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/75 to-[#FCFBFA]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/35 dark:from-black/35 via-white/75 dark:via-black/75 to-[var(--color-canvas)]" />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center space-y-6">
-          <Badge className="bg-white/85 hover:bg-white text-slate-800 border border-slate-200/80 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md shadow-xs">
+          <Badge className="bg-[var(--color-surface)]/85 hover:bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md shadow-xs">
             The Agency · South Florida Luxury Portfolio
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-slate-900 uppercase">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-[var(--color-text-primary)] uppercase">
             Premium Beachfront Residences
           </h1>
-          <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-sm md:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed font-normal">
             Discover hand-selected penthouses and architectural masterpieces curated across Sunny Isles, Brickell, and Coral Gables, fully prepared for immediate private consultation.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -218,7 +218,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </Button>
             <a
               href="#portfolio"
-              className="w-full sm:w-auto h-11 px-6 border border-slate-300 text-slate-800 bg-white/60 hover:bg-white hover:border-slate-400 text-[12px] font-mono font-bold tracking-wider uppercase rounded-[4px] backdrop-blur-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
+              className="w-full sm:w-auto h-11 px-6 border border-[var(--color-border)] text-[var(--color-text-primary)] bg-[var(--color-surface)]/60 hover:bg-[var(--color-surface)] hover:border-slate-400 dark:hover:border-slate-500 text-[12px] font-mono font-bold tracking-wider uppercase rounded-[4px] backdrop-blur-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
             >
               <span>Explore Portfolio</span>
               <ArrowRight className="h-4 w-4" />
@@ -229,36 +229,36 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
       {/* Floating Value Deck Quick Navigation */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-slate-200/80 bg-white shadow-xl">
-          <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 text-left">
-            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] shadow-xl">
+          <div className="p-4 rounded-md hover:bg-[var(--color-panel-subtle)] transition-colors flex items-start gap-4 text-left">
+            <div className="h-10 w-10 rounded-full bg-[var(--color-panel-subtle)] flex items-center justify-center text-[var(--color-text-secondary)] shrink-0 border border-[var(--color-border)]">
               <Compass className="h-5 w-5" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827]">Bespoke Matching</h3>
-              <p className="text-[13px] text-[#374151] leading-relaxed font-normal">
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Bespoke Matching</h3>
+              <p className="text-[13px] text-[var(--color-text-secondary)] leading-relaxed font-normal">
                 Direct, confidential access to Miami's most exclusive off-market listings, custom sky penthouses, and premier pre-construction developments.
               </p>
             </div>
           </div>
-          <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 border-t md:border-t-0 md:border-x border-slate-100 text-left">
-            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
+          <div className="p-4 rounded-md hover:bg-[var(--color-panel-subtle)] transition-colors flex items-start gap-4 border-t md:border-t-0 md:border-x border-[var(--color-border-subtle)] text-left">
+            <div className="h-10 w-10 rounded-full bg-[var(--color-panel-subtle)] flex items-center justify-center text-[var(--color-text-secondary)] shrink-0 border border-[var(--color-border)]">
               <Shield className="h-5 w-5" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827]">Private Representation</h3>
-              <p className="text-[13px] text-[#374151] leading-relaxed font-normal">
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-text-primary)]">Private Representation</h3>
+              <p className="text-[13px] text-[var(--color-text-secondary)] leading-relaxed font-normal">
                 Uncompromising privacy and institutional-grade discretion for high-net-worth individuals, family offices, and international entities.
               </p>
             </div>
           </div>
-          <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 border-t md:border-t-0 text-left">
-            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
+          <div className="p-4 rounded-md hover:bg-[var(--color-panel-subtle)] transition-colors flex items-start gap-4 border-t md:border-t-0 text-left">
+            <div className="h-10 w-10 rounded-full bg-[var(--color-panel-subtle)] flex items-center justify-center text-[var(--color-text-secondary)] shrink-0 border border-[var(--color-border)]">
               <TrendingUp className="h-5 w-5" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827]">On-Demand Showings</h3>
-              <p className="text-[13px] text-[#374151] leading-relaxed font-normal">
+              <h3 className="text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--color-text-primary)]">On-Demand Showings</h3>
+              <p className="text-[13px] text-[var(--color-text-secondary)] leading-relaxed font-normal">
                 Seamless coordination for private helicopter charters, luxury ground transport, or deep-water yacht docking directly at candidate estates.
               </p>
             </div>
@@ -267,37 +267,37 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </div>
 
       {/* Editorial Slogan Section (Motto) */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[var(--color-surface)]">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[#111827] leading-snug font-bold select-none tracking-tight">
+          <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[var(--color-text-primary)] leading-snug font-bold select-none tracking-tight">
             "EXCELLENCE IS A CONSTANT, NOT AN EXCEPTION"
           </p>
-          <div className="h-0.5 w-16 bg-slate-300 mx-auto mt-6" />
+          <div className="h-0.5 w-16 bg-[var(--color-border)] mx-auto mt-6" />
         </div>
       </section>
 
       {/* Segment Selection Navigation (Luxury Dashboard Feel) */}
       <section id="portfolio" className="pt-20 max-w-6xl mx-auto px-4 scroll-mt-16 text-center">
         <div className="mb-10 max-w-xl mx-auto space-y-3">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
             Valeria's Portfolio Core
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] uppercase tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] uppercase tracking-tight">
             Curated South Florida Portals
           </h2>
-          <p className="text-sm text-[#475569] leading-relaxed font-normal">
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed font-normal">
             Toggle between live pre-construction developments, submarket inventory metrics, or active beachfront estates.
           </p>
         </div>
 
         {/* Dashboard Navigation Tabs */}
-        <div className="flex justify-center border-b border-slate-200 max-w-md mx-auto mb-12">
+        <div className="flex justify-center border-b border-[var(--color-border)] max-w-md mx-auto mb-12">
           <button
             onClick={() => setActiveCatalogTab('listings')}
             className={`flex-1 pb-3 text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCatalogTab === 'listings'
                 ? 'border-b-2 border-[#E31B23] text-[#E31B23]'
-                : 'text-slate-400 hover:text-[#111827]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
             }`}
           >
             Beachfront Estates
@@ -307,7 +307,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             className={`flex-1 pb-3 text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCatalogTab === 'precon'
                 ? 'border-b-2 border-[#E31B23] text-[#E31B23]'
-                : 'text-slate-400 hover:text-[#111827]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
             }`}
           >
             Pre-Construction
@@ -317,7 +317,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             className={`flex-1 pb-3 text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
               activeCatalogTab === 'stats'
                 ? 'border-b-2 border-[#E31B23] text-[#E31B23]'
-                : 'text-slate-400 hover:text-[#111827]'
+                : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'
             }`}
           >
             Waterfront Stats
@@ -330,7 +330,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {luxuryListings.map(listing => (
               <div
                 key={listing.id}
-                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-lg hover:border-slate-400 transition-all duration-300 flex flex-col"
+                className="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden shadow-xs hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-300 flex flex-col"
               >
                 <div className="relative h-64 w-full overflow-hidden">
                   <img
@@ -354,20 +354,20 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-[11.5px] text-[#475569] font-mono border-b border-slate-100 pb-2.5">
-                      <span className="font-bold text-[#111827]">Specifications:</span>
-                      <span className="font-semibold text-slate-800">{listing.specs}</span>
+                    <div className="flex items-center gap-2 text-[11.5px] text-[var(--color-text-muted)] font-mono border-b border-[var(--color-border-subtle)] pb-2.5">
+                      <span className="font-bold text-[var(--color-text-primary)]">Specifications:</span>
+                      <span className="font-semibold text-[var(--color-text-secondary)]">{listing.specs}</span>
                     </div>
-                    <p className="text-[14px] text-[#374151] leading-relaxed font-normal">
+                    <p className="text-[14px] text-[var(--color-text-secondary)] leading-relaxed font-normal">
                       {listing.description}
                     </p>
                     <div className="space-y-2 pt-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#111827] block">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--color-text-primary)] block">
                         Exclusive Amenities:
                       </span>
                       <div className="grid grid-cols-2 gap-2 pt-0.5">
                         {listing.amenities.map((amenity, idx) => (
-                          <div key={idx} className="flex items-center gap-1.5 text-[13px] text-[#374151]">
+                          <div key={idx} className="flex items-center gap-1.5 text-[13px] text-[var(--color-text-secondary)]">
                             <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-slate-500" />
                             <span className="truncate font-normal">{amenity}</span>
                           </div>
@@ -376,14 +376,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="text-[10.5px] text-[#475569] font-mono leading-tight min-w-0 flex-1">
-                      <div className="truncate">Developer: <span className="font-bold text-[#111827]">{listing.developer}</span></div>
-                      <div className="mt-1">Completion: <span className="font-bold text-[#111827]">{listing.completionYear}</span></div>
+                  <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="text-[10.5px] text-[var(--color-text-muted)] font-mono leading-tight min-w-0 flex-1">
+                      <div className="truncate">Developer: <span className="font-bold text-[var(--color-text-primary)]">{listing.developer}</span></div>
+                      <div className="mt-1">Completion: <span className="font-bold text-[var(--color-text-primary)]">{listing.completionYear}</span></div>
                     </div>
                     <Button
                       onClick={onOpenConcierge}
-                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase bg-slate-900 hover:bg-slate-800 text-white rounded-[3px] px-4 cursor-pointer flex items-center justify-center gap-1.5 transition-all shrink-0 w-full sm:w-auto"
+                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-[3px] px-4 cursor-pointer flex items-center justify-center gap-1.5 transition-all shrink-0 w-full sm:w-auto"
                     >
                       <Calendar className="h-3.5 w-3.5" />
                       <span>Book Showing</span>
@@ -401,44 +401,44 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {preConstructionDevelopments.map((dev, idx) => (
               <div
                 key={idx}
-                className="group rounded-lg border border-slate-200 bg-white p-6 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between space-y-6"
+                className="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-2xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
-                  <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
+                  <div className="flex items-start justify-between gap-2 border-b border-[var(--color-border-subtle)] pb-3">
                     <div>
-                      <h3 className="font-extrabold text-[15px] text-[#111827] uppercase tracking-tight group-hover:text-slate-950 group-hover:underline decoration-slate-300 transition-colors">
+                      <h3 className="font-extrabold text-[15px] text-[var(--color-text-primary)] uppercase tracking-tight group-hover:text-slate-950 dark:group-hover:text-white group-hover:underline decoration-slate-300 transition-colors">
                         {dev.name}
                       </h3>
-                      <div className="flex items-center gap-1 text-[11px] text-[#475569] font-mono mt-1">
+                      <div className="flex items-center gap-1 text-[11px] text-[var(--color-text-muted)] font-mono mt-1">
                         <MapPin className="h-3 w-3 shrink-0 text-slate-400" />
                         <span className="truncate max-w-[180px] font-semibold">{dev.address}</span>
                       </div>
                     </div>
-                    <Badge variant="outline" className="border-slate-200 bg-slate-50 text-slate-600 text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shrink-0 whitespace-nowrap">
+                    <Badge variant="outline" className="border-[var(--color-border)] bg-[var(--color-panel-subtle)] text-[var(--color-text-secondary)] text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shrink-0 whitespace-nowrap">
                       {dev.badge}
                     </Badge>
                   </div>
 
                   <div className="space-y-2.5 text-[13px]">
                     <div className="flex items-center justify-between">
-                      <span className="text-[#475569] font-sans font-normal">Price Bracket:</span>
-                      <span className="font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-[3px]">
+                      <span className="text-[var(--color-text-secondary)] font-sans font-normal">Price Bracket:</span>
+                      <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50/10 border border-emerald-200/20 px-2 py-0.5 rounded-[3px]">
                         {dev.price}
                       </span>
                     </div>
                     <div className="flex items-start justify-between gap-4 pt-1">
-                      <span className="text-[#475569] font-sans font-normal shrink-0">HOA Assessment:</span>
-                      <span className="font-mono text-[#111827] font-bold text-right text-[11.5px] leading-snug">
+                      <span className="text-[var(--color-text-secondary)] font-sans font-normal shrink-0">HOA Assessment:</span>
+                      <span className="font-mono text-[var(--color-text-primary)] font-bold text-right text-[11.5px] leading-snug">
                         {dev.hoa}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100">
+                <div className="pt-3 border-t border-[var(--color-border-subtle)]">
                   <Button
                     onClick={onOpenConcierge}
-                    className="w-full h-8.5 text-[10.5px] font-mono font-bold tracking-widest uppercase bg-[#111827] hover:bg-[#1f2937] text-white rounded-[3px] cursor-pointer flex items-center justify-center gap-1.5"
+                    className="w-full h-8.5 text-[10.5px] font-mono font-bold tracking-widest uppercase bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-[3px] cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     <Layers className="h-3.5 w-3.5 text-slate-400" />
                     <span>Inquire Plans</span>
@@ -455,7 +455,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {miamiSubmarkets.map((market, idx) => (
               <div
                 key={idx}
-                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all flex flex-col justify-between"
+                className="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden shadow-2xs hover:shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
               >
                 <div className="relative h-24 overflow-hidden bg-slate-900">
                   <img
@@ -471,33 +471,33 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
                 <div className="p-4 space-y-3.5">
                   <div className="grid grid-cols-2 gap-3 text-xs font-mono">
-                    <div className="border-r border-slate-100 pr-2">
-                      <div className="text-[10px] text-[#475569] font-bold uppercase">FOR SALE</div>
-                      <div className="text-[13px] font-bold text-[#111827] mt-0.5 flex items-baseline gap-1">
+                    <div className="border-r border-[var(--color-border-subtle)] pr-2">
+                      <div className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase">FOR SALE</div>
+                      <div className="text-[13px] font-bold text-[var(--color-text-primary)] mt-0.5 flex items-baseline gap-1">
                         <span>{market.forSale}</span>
                         <span className="text-[8.5px] font-bold text-emerald-700">{market.changeSale}</span>
                       </div>
                     </div>
                     <div className="pl-1">
-                      <div className="text-[10px] text-[#475569] font-bold uppercase">FOR RENT</div>
-                      <div className="text-[13px] font-bold text-[#111827] mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase">FOR RENT</div>
+                      <div className="text-[13px] font-bold text-[var(--color-text-primary)] mt-0.5 flex items-baseline gap-1">
                         <span>{market.forRent}</span>
                         <span className="text-[8.5px] font-semibold text-slate-500">{market.changeRent}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 text-xs font-mono border-t border-slate-100 pt-3">
-                    <div className="border-r border-slate-100 pr-2">
-                      <div className="text-[10px] text-[#475569] font-bold uppercase">PENDING</div>
-                      <div className="text-[13px] font-bold text-[#111827] mt-0.5 flex items-baseline gap-1">
+                  <div className="grid grid-cols-2 gap-3 text-xs font-mono border-t border-[var(--color-border-subtle)] pt-3">
+                    <div className="border-r border-[var(--color-border-subtle)] pr-2">
+                      <div className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase">PENDING</div>
+                      <div className="text-[13px] font-bold text-[var(--color-text-primary)] mt-0.5 flex items-baseline gap-1">
                         <span>{market.pending}</span>
                         <span className="text-[8.5px] font-bold text-emerald-700">{market.changePend}</span>
                       </div>
                     </div>
                     <div className="pl-1">
-                      <div className="text-[10px] text-[#475569] font-bold uppercase">SOLD (7D)</div>
-                      <div className="text-[13px] font-bold text-[#111827] mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[10px] text-[var(--color-text-muted)] font-bold uppercase">SOLD (7D)</div>
+                      <div className="text-[13px] font-bold text-[var(--color-text-primary)] mt-0.5 flex items-baseline gap-1">
                         <span>{market.sold}</span>
                         <span className="text-[8.5px] font-bold text-emerald-700">{market.changeSold}</span>
                       </div>
@@ -505,10 +505,10 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   </div>
                 </div>
 
-                <div className="p-3 border-t border-slate-100 bg-slate-50/50">
+                <div className="p-3 border-t border-[var(--color-border-subtle)] bg-[var(--color-panel-subtle)]">
                   <button
                     onClick={onOpenConcierge}
-                    className="w-full text-center text-[9px] font-mono font-bold uppercase tracking-wider text-slate-600 hover:text-slate-900 hover:underline transition-colors cursor-pointer"
+                    className="w-full text-center text-[9px] font-mono font-bold uppercase tracking-wider text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:underline transition-colors cursor-pointer"
                   >
                     Request Area Ledger &rarr;
                   </button>
@@ -520,16 +520,16 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* NEW: Signature Collections Showcase */}
-      <section className="py-24 bg-white text-[#111827]">
+      <section className="py-24 bg-[var(--color-surface)] text-[var(--color-text-primary)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16 text-center max-w-xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
               Discover Signature Collections
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] uppercase tracking-tight">
               The Most Exclusive Listings
             </h2>
-            <p className="text-sm text-[#475569] leading-relaxed font-normal">
+            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed font-normal">
               Carefully grouped, elite market selections presenting verified active options curated by Valeria.
             </p>
           </div>
@@ -539,7 +539,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <div
                 key={idx}
                 onClick={onOpenConcierge}
-                className="group cursor-pointer rounded-lg border border-slate-200 bg-[#FCFBFA] overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="group cursor-pointer rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -558,10 +558,10 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   </div>
                 </div>
                 <div className="p-4 flex-1 flex flex-col justify-between space-y-3 text-left">
-                  <p className="text-[13px] text-[#374151] leading-relaxed font-normal line-clamp-3">
+                  <p className="text-[13px] text-[var(--color-text-secondary)] leading-relaxed font-normal line-clamp-3">
                     {col.description}
                   </p>
-                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono uppercase text-slate-600 font-bold tracking-wider group-hover:text-[#111827] transition-colors">
+                  <div className="pt-2.5 border-t border-[var(--color-border-subtle)] flex items-center justify-between text-[9.5px] font-mono uppercase text-[var(--color-text-muted)] font-bold tracking-wider group-hover:text-[var(--color-text-primary)] transition-colors">
                     <span>Curated by Valeria</span>
                     <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#E31B23] group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -573,29 +573,29 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* OVERHAULED: Interactive Broward & Palm Beach County Coverage */}
-      <section className="py-24 bg-slate-50/60 border-y border-slate-200/60 text-slate-900">
+      <section className="py-24 bg-[var(--color-panel-subtle)] border-y border-[var(--color-border)] text-[var(--color-text-primary)]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-14 text-center max-w-xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-muted)]">
               Statewide Coverage Network
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] uppercase tracking-tight">
               Extended Luxury Submarkets
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed font-normal">
+            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed font-normal">
               Confidential placement metrics for key enclaves throughout Broward and Palm Beach Counties.
             </p>
           </div>
 
           {/* Interactive County Tab Selection */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex flex-col sm:flex-row rounded-md bg-slate-100 p-1 border border-slate-200/80 shadow-xs">
+            <div className="inline-flex flex-col sm:flex-row rounded-md bg-[var(--color-panel-subtle)] p-1 border border-[var(--color-border)] shadow-xs">
               <button
                 onClick={() => setActiveCountyTab('broward')}
                 className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
                   activeCountyTab === 'broward'
-                    ? 'bg-white text-slate-900 border border-slate-200 shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800 border border-transparent'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] shadow-xs'
+                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] border border-transparent'
                 }`}
               >
                 <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'broward' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-400'}`}></span>
@@ -605,8 +605,8 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 onClick={() => setActiveCountyTab('palmbeach')}
                 className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
                   activeCountyTab === 'palmbeach'
-                    ? 'bg-white text-slate-900 border border-slate-200 shadow-xs'
-                    : 'text-slate-500 hover:text-slate-800 border border-transparent'
+                    ? 'bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] shadow-xs'
+                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] border border-transparent'
                 }`}
               >
                 <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'palmbeach' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-400'}`}></span>
@@ -620,29 +620,29 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {(activeCountyTab === 'broward' ? browardSubmarkets : palmBeachSubmarkets).map((market, idx) => (
               <div
                 key={idx}
-                className="group rounded-lg border border-slate-200 bg-white hover:border-slate-300 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between space-y-4"
+                className="group rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-slate-300 dark:hover:border-slate-700 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between space-y-4"
               >
                 {/* Title & Status Indicator */}
-                <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
-                  <span className="font-extrabold text-[13px] text-slate-900 tracking-wide uppercase font-sans truncate max-w-[180px]">
+                <div className="flex items-center justify-between border-b border-[var(--color-border-subtle)] pb-3">
+                  <span className="font-extrabold text-[13px] text-[var(--color-text-primary)] tracking-wide uppercase font-sans truncate max-w-[180px]">
                     {market.name}
                   </span>
                   <span className="flex items-center gap-1.5 shrink-0">
                     <span className="h-1 w-1 rounded-full bg-[#E31B23] opacity-80"></span>
-                    <span className="text-[8px] font-mono font-bold text-slate-400 uppercase tracking-widest">ACTIVE PORTAL</span>
+                    <span className="text-[8px] font-mono font-bold text-[var(--color-text-muted)] uppercase tracking-widest">ACTIVE PORTAL</span>
                   </span>
                 </div>
 
                 {/* Submarket Metrics Split Ledger */}
                 <div className="grid grid-cols-2 gap-6 text-left py-2">
                   {/* Column 1 */}
-                  <div className="space-y-4 border-r border-slate-100 pr-3">
+                  <div className="space-y-4 border-r border-[var(--color-border-subtle)] pr-3">
                     <div>
-                      <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                      <span className="text-[9.5px] font-mono font-bold text-[var(--color-text-muted)] uppercase tracking-wider block">
                         FOR SALE
                       </span>
                       <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
-                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                        <span className="text-2xl font-extrabold text-[var(--color-text-primary)] tracking-tight font-sans">
                           {market.forSale}
                         </span>
                         {market.changeSale && (

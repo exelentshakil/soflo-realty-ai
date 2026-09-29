@@ -73,6 +73,24 @@ export function AiConciergeDrawer({
   ]);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Sync textarea height synchronously on mount or when input clears
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      if (input) {
+        textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 140)}px`;
+      }
+    }
+  }, [input]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = `${Math.min(textarea.scrollHeight, 140)}px`;
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -82,8 +100,15 @@ export function AiConciergeDrawer({
     }
   }, [messages, loading]);
 
-  const handleSend = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+
+  const handleSend = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     const trimmed = input.trim();
     if (!trimmed || loading) return;
 
@@ -91,6 +116,9 @@ export function AiConciergeDrawer({
     const userMsg: Message = { id: userMsgId, role: 'user', content: trimmed };
     setMessages(prev => [...prev, userMsg]);
     setInput('');
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+    }
     setLoading(true);
 
     try {
@@ -303,11 +331,12 @@ msg.role === 'user' ? 'justify-end' : 'justify-start'
 )}
 <div className="flex flex-col space-y-1">
 <div
-className={`rounded-xl px-4 py-2.5 text-[15.5px] leading-relaxed shadow-3xs font-sans ${
+className={`rounded-xl px-4 py-3 text-[15.5px] leading-[1.6] shadow-3xs tracking-tight ${
 msg.role === 'user'
 ? 'bg-[#E31B23] text-white border border-[#E31B23]/20 rounded-tr-xs font-semibold'
-: 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-900 dark:text-white font-medium rounded-tl-xs'
+: 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-800 dark:text-slate-100 font-normal rounded-tl-xs'
 }`}
+style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, sans-serif", letterSpacing: "-0.015em" }}
 >
 <p className="whitespace-pre-wrap">{msg.content}</p>
 </div>
@@ -330,7 +359,10 @@ msg.role === 'user'
     className="h-full w-full object-cover object-top"
   />
 </div>
-<div className="rounded-xl px-4 py-2.5 text-[14px] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-800 rounded-tl-xs shadow-3xs flex items-center gap-2 font-sans font-medium">
+<div
+className="rounded-xl px-4 py-3 text-[14px] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-800 dark:text-slate-200 rounded-tl-xs shadow-3xs flex items-center gap-2 font-normal"
+style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, sans-serif", letterSpacing: "-0.015em" }}
+>
 <span className="h-2 w-2 rounded-full bg-slate-500 animate-ping"></span>
 <span>AI is typing...</span>
 </div>
@@ -345,20 +377,26 @@ msg.role === 'user'
 {/* Input Form Footer */}
 <form
 onSubmit={handleSend}
-className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] flex gap-2 items-center shrink-0"
+className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] flex gap-2.5 items-end shrink-0"
 >
-<Input
-value={input}
-onChange={e => setInput(e.target.value)}
-placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
-className="flex-1 h-11 text-[15px] sm:text-[15px] border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus-visible:bg-[var(--color-surface)] focus-visible:ring-1 focus-visible:ring-[#E31B23] focus-visible:border-[#E31B23] rounded-[6px] px-3 shadow-2xs font-sans text-slate-900"
-disabled={loading}
-/>
+<div className="flex-1 relative">
+  <textarea
+    ref={textareaRef}
+    rows={1}
+    value={input}
+    onChange={handleInputChange}
+    onKeyDown={handleKeyDown}
+    placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
+    className="w-full min-h-[44px] max-h-[140px] text-[15px] sm:text-[15px] border border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus:bg-[var(--color-surface)] focus:ring-1 focus:ring-[#E31B23] focus:border-[#E31B23] rounded-[10px] px-4 py-2.5 pr-3 shadow-2xs text-slate-900 dark:text-slate-100 leading-normal resize-none overflow-y-auto outline-none transition-all"
+    style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, sans-serif", letterSpacing: "-0.015em" }}
+    disabled={loading}
+  />
+</div>
 <Button
 type="submit"
 size="sm"
 disabled={loading || !input.trim()}
-className="h-11 w-11 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[6px] shadow-2xs cursor-pointer shrink-0"
+className="h-11 w-11 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[10px] shadow-2xs cursor-pointer shrink-0 flex items-center justify-center mb-[1px]"
 >
 <Send className="h-4.5 w-4.5" />
 </Button>
