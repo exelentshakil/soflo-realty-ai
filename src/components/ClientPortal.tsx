@@ -19,6 +19,7 @@ import {
   Phone,
   Mail,
   Search,
+  X,
 } from 'lucide-react';
 import { mediaConfig } from '@/config/media';
 import { luxuryListings, type LuxuryListing } from '@/config/listings';
@@ -33,6 +34,9 @@ interface ClientPortalProps {
 export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalProps) {
   // Active county submarket tab (Broward vs Palm Beach)
   const [activeCountyTab, setActiveCountyTab] = useState<'broward' | 'palmbeach'>('broward');
+
+  // Welcome speech bubble for the AI Concierge avatar
+  const [showWelcomeBubble, setShowWelcomeBubble] = useState(true);
 
   // Active submarket tab (all vs Miami stats vs Pre-con)
   const [activeCatalogTab, setActiveCatalogTab] = useState<'listings' | 'precon' | 'stats'>('listings');
@@ -795,18 +799,48 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* Floating Active Concierge Widget Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3.5 max-w-[290px]">
+        {showWelcomeBubble && (
+          <div
+            onClick={onOpenConcierge}
+            className="relative bg-white rounded-lg border border-slate-200 p-4 shadow-2xl text-left animate-in fade-in slide-in-from-bottom-4 duration-300 cursor-pointer hover:border-slate-300 transition-all"
+          >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowWelcomeBubble(false);
+              }}
+              className="absolute top-2.5 right-2.5 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+            <div className="space-y-1.5 pr-2">
+              <span className="text-[9px] font-mono font-bold text-[#E31B23] uppercase tracking-widest block">
+                Valeria's Associate
+              </span>
+              <p className="text-[12.5px] text-slate-800 leading-relaxed font-sans font-normal">
+                Hi! Looking for a beachfront estate or off-market penthouse? Let me help you select prime enclaves and book showing calendars.
+              </p>
+              <div className="text-[10px] font-mono font-bold text-slate-900 flex items-center gap-1">
+                <span>Start Confidential Chat</span>
+                <span className="text-[#E31B23] font-sans">&rarr;</span>
+              </div>
+            </div>
+            {/* Speech bubble arrow */}
+            <div className="absolute right-6 bottom-[-6px] w-3 h-3 bg-white border-r border-b border-slate-200 rotate-[45deg]" />
+          </div>
+        )}
+
         <button
           onClick={onOpenConcierge}
-          className="h-11 px-5 rounded-full bg-[#111827] text-white flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-101 hover:bg-[#1f2937] transition-all cursor-pointer border border-[#E31B23]/30 active:scale-98"
+          className="relative h-16 w-16 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white hover:border-[#E31B23]/50 overflow-hidden cursor-pointer group shrink-0"
         >
-          <span className="relative flex h-2 w-2 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D924] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00D924]"></span>
-          </span>
-          <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-[#E31B23]">
-            AI Concierge · Active
-          </span>
+          <img
+            src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
+            alt="Valeria Assistant Avatar"
+            className="w-full h-full object-cover object-top filter contrast-[1.02] group-hover:scale-102 transition-transform duration-500"
+          />
+          <span className="absolute bottom-0.5 right-0.5 h-4 w-4 rounded-full bg-[#00D924] border-2 border-white animate-pulse" />
         </button>
       </div>
 
