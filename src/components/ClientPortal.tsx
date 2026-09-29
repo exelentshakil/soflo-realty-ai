@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   MapPin,
   ArrowRight,
@@ -32,6 +32,14 @@ interface ClientPortalProps {
 }
 
 export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Slow down ambient video for calm luxury feel
+    }
+  }, []);
+
   // Active county submarket tab (Broward vs Palm Beach)
   const [activeCountyTab, setActiveCountyTab] = useState<'broward' | 'palmbeach'>('broward');
 
@@ -177,6 +185,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       {/* Cinematic Drone Video Hero Section */}
       <div className="relative w-full h-[85vh] overflow-hidden flex items-center justify-center bg-black">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
