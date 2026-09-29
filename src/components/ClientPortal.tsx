@@ -692,15 +692,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
       {/* OVERHAULED: About Valeria Editorial Biography (Premium Widescreen Grid Layout) */}
       <section id="about" className="py-28 max-w-6xl mx-auto px-4 scroll-mt-16 bg-[#FCFBFA]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-12 lg:gap-16">
 
           {/* Left Column: Mighty Tall Widescreen Portrait Frame */}
-          <div className="lg:col-span-6 flex items-stretch justify-center w-full">
-            <div className="relative w-full max-w-[460px] min-h-[500px] rounded-lg overflow-hidden shadow-2xl bg-slate-900 group">
+          <div className="lg:col-span-6 flex w-full">
+            <div className="relative w-full h-full min-h-[500px] lg:min-h-[600px] rounded-lg overflow-hidden shadow-2xl bg-slate-900 group">
               <img
                 src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
                 alt="Valeria Afanasieva Portrait"
-                className="w-full h-full object-cover object-top filter contrast-[1.01] brightness-[1.01] transition-transform duration-700 group-hover:scale-101"
+                className="absolute inset-0 w-full h-full object-cover object-top filter contrast-[1.01] brightness-[1.01] transition-transform duration-700 group-hover:scale-101"
               />
               {/* Subtle luxury vignette gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
