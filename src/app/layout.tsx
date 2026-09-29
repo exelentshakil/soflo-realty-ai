@@ -6,6 +6,11 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: `${siteConfig.name} • ${siteConfig.tagline}`,
   description: siteConfig.description,
+  icons: {
+    icon: 'https://media.pandaidx.com/app/65368b3913315d8344407428/settings/favicon/f5a56a24-a675-4f92-8c29-23b67fc82a34.png',
+    shortcut: 'https://media.pandaidx.com/app/65368b3913315d8344407428/settings/favicon/f5a56a24-a675-4f92-8c29-23b67fc82a34.png',
+    apple: 'https://media.pandaidx.com/app/65368b3913315d8344407428/settings/favicon/f5a56a24-a675-4f92-8c29-23b67fc82a34.png',
+  }
 };
 
 export default function RootLayout({

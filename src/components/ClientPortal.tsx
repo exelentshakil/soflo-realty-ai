@@ -31,9 +31,8 @@ interface ClientPortalProps {
 }
 
 export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalProps) {
-  // Collapsible accordion states for Broward & Palm Beach Counties
-  const [browardOpen, setBrowardOpen] = useState(false);
-  const [palmBeachOpen, setPalmBeachOpen] = useState(false);
+  // Active county submarket tab (Broward vs Palm Beach)
+  const [activeCountyTab, setActiveCountyTab] = useState<'broward' | 'palmbeach'>('broward');
 
   // Active submarket tab (all vs Miami stats vs Pre-con)
   const [activeCatalogTab, setActiveCatalogTab] = useState<'listings' | 'precon' | 'stats'>('listings');
@@ -255,7 +254,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </div>
 
       {/* Editorial Slogan Section (Motto) */}
-      <section className="py-14 border-b border-slate-150 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[#111827] leading-snug font-bold select-none tracking-tight">
             "EXCELLENCE IS A CONSTANT, NOT AN EXCEPTION"
@@ -508,7 +507,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* NEW: Signature Collections Showcase */}
-      <section className="py-24 bg-white border-y border-slate-150 text-[#111827]">
+      <section className="py-24 bg-white text-[#111827]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16 text-center max-w-xl mx-auto space-y-3">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
@@ -560,9 +559,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         </div>
       </section>
 
-      {/* NEW: Collapsible Broward & Palm Beach County Coverage */}
-      <section className="py-24 bg-[#111827] text-white border-b border-slate-800">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* OVERHAULED: Interactive Broward & Palm Beach County Coverage */}
+      <section className="py-24 bg-[#111827] text-white">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="mb-14 text-center max-w-xl mx-auto space-y-3">
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">
               Statewide Coverage Network
@@ -575,86 +574,118 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </p>
           </div>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
-
-            {/* Broward Accordion */}
-            <div className="rounded-lg border border-[#1F2937] bg-[#111827] overflow-hidden">
+          {/* Interactive County Tab Selection */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex flex-col sm:flex-row rounded-md bg-slate-900 p-1 border border-slate-800/80 shadow-2xl">
               <button
-                onClick={() => setBrowardOpen(!browardOpen)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1F2937]/50 transition-all cursor-pointer text-left"
+                onClick={() => setActiveCountyTab('broward')}
+                className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
+                  activeCountyTab === 'broward'
+                    ? 'bg-[#1F2937] text-white border border-slate-700/50 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                }`}
               >
-                <div className="flex items-center gap-3">
-                  <Building className="h-4 w-4 text-slate-400" />
-                  <span className="text-sm font-bold uppercase tracking-wider font-mono">
-                    Broward County Submarkets (Fort Lauderdale Focus)
+                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'broward' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-600'}`}></span>
+                <span>Broward County (Fort Lauderdale)</span>
+              </button>
+              <button
+                onClick={() => setActiveCountyTab('palmbeach')}
+                className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
+                  activeCountyTab === 'palmbeach'
+                    ? 'bg-[#1F2937] text-white border border-slate-700/50 shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                }`}
+              >
+                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'palmbeach' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-600'}`}></span>
+                <span>Palm Beach County (Boca & Wellington)</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Active Ledger Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {(activeCountyTab === 'broward' ? browardSubmarkets : palmBeachSubmarkets).map((market, idx) => (
+              <div
+                key={idx}
+                className="group rounded-md border border-slate-800/80 bg-slate-900/40 hover:bg-slate-900/80 hover:border-slate-700 transition-all duration-300 p-5 flex flex-col justify-between space-y-4 shadow-xs"
+              >
+                {/* Title & Status Indicator */}
+                <div className="flex items-center justify-between border-b border-slate-800/60 pb-3">
+                  <span className="font-extrabold text-[13px] text-white tracking-wide uppercase font-sans truncate max-w-[180px]">
+                    {market.name}
+                  </span>
+                  <span className="flex items-center gap-1.5 shrink-0">
+                    <span className="h-1 w-1 rounded-full bg-[#E31B23] opacity-80"></span>
+                    <span className="text-[8px] font-mono font-bold text-slate-500 uppercase tracking-widest">ACTIVE PORTAL</span>
                   </span>
                 </div>
-                {browardOpen ? <ChevronUp className="h-4 w-4 text-slate-400" /> : <ChevronDown className="h-4 w-4 text-slate-400" />}
-              </button>
 
-              {browardOpen && (
-                <div className="px-6 pb-6 pt-2 border-t border-[#1F2937] bg-slate-900/30 text-left">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-3">
-                    {browardSubmarkets.map((market, idx) => (
-                      <div key={idx} className="p-3.5 rounded border border-[#1F2937] bg-slate-900 space-y-2">
-                        <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
-                          <span className="font-extrabold text-[12.5px] text-white tracking-tight truncate max-w-[140px]">{market.name}</span>
-                          <span className="text-[10px] font-mono font-bold text-slate-300">{market.forSale} Listings</span>
-                        </div>
-                        <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
-                          <span>Active Sale: <span className="text-white font-bold">{market.changeSale}</span></span>
-                          <span>Rentals: <span className="text-white font-bold">{market.forRent}</span></span>
-                        </div>
-                        <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
-                          <span>Pending: <span className="text-white font-bold">{market.pending}</span></span>
-                          <span>Sold: <span className="text-white font-bold">{market.sold}</span></span>
-                        </div>
+                {/* Submarket Metrics Split Ledger */}
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  {/* Column 1 */}
+                  <div className="space-y-3 border-r border-slate-800/40 pr-2">
+                    <div>
+                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                        FOR SALE
+                      </span>
+                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                        <span>{market.forSale}</span>
+                        <span className="text-[8.5px] text-[#057A55] font-bold">{market.changeSale}</span>
                       </div>
-                    ))}
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                        PENDING
+                      </span>
+                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                        <span>{market.pending}</span>
+                        {(market as any).changePend && (
+                          <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changePend}</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Column 2 */}
+                  <div className="space-y-3 pl-1">
+                    <div>
+                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                        RENTALS
+                      </span>
+                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                        <span>{market.forRent}</span>
+                        {(market as any).changeRent && (
+                          <span className="text-[8.5px] text-slate-400 font-bold">{(market as any).changeRent}</span>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                        SOLD
+                      </span>
+                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                        <span>{market.sold}</span>
+                        {(market as any).changeSold && (
+                          <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changeSold}</span>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              )}
-            </div>
 
-            {/* Palm Beach Accordion */}
-            <div className="rounded-lg border border-[#1F2937] bg-[#111827] overflow-hidden">
-              <button
-                onClick={() => setPalmBeachOpen(!palmBeachOpen)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1F2937]/50 transition-all cursor-pointer text-left"
-              >
-                <div className="flex items-center gap-3">
-                  <Building className="h-4 w-4 text-slate-400" />
-                  <span className="text-sm font-bold uppercase tracking-wider font-mono">
-                    Palm Beach County Submarkets (Boca Raton & Wellington Focus)
-                  </span>
+                {/* Submarket Action Trigger */}
+                <div className="pt-3.5 border-t border-slate-800/40 flex items-center justify-between text-[9px] font-mono uppercase text-slate-400 group-hover:text-white transition-colors">
+                  <span>CONFIDENTIAL METRICS</span>
+                  <button
+                    onClick={onOpenConcierge}
+                    className="text-[#E31B23] hover:underline font-bold tracking-wider cursor-pointer flex items-center gap-1.5"
+                  >
+                    <span>REQUEST PORTAL</span>
+                    <ArrowRight className="h-3 w-3 shrink-0" />
+                  </button>
                 </div>
-                {palmBeachOpen ? <ChevronUp className="h-4 w-4 text-slate-400" /> : <ChevronDown className="h-4 w-4 text-slate-400" />}
-              </button>
-
-              {palmBeachOpen && (
-                <div className="px-6 pb-6 pt-2 border-t border-[#1F2937] bg-slate-900/30 text-left">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-3">
-                    {palmBeachSubmarkets.map((market, idx) => (
-                      <div key={idx} className="p-3.5 rounded border border-[#1F2937] bg-slate-900 space-y-2">
-                        <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
-                          <span className="font-extrabold text-[12.5px] text-white tracking-tight truncate max-w-[140px]">{market.name}</span>
-                          <span className="text-[10px] font-mono font-bold text-slate-300">{market.forSale} Active</span>
-                        </div>
-                        <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
-                          <span>Active Sale: <span className="text-white font-bold">{market.changeSale}</span></span>
-                          <span>Rentals: <span className="text-white font-bold">{market.forRent}</span></span>
-                        </div>
-                        <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
-                          <span>Pending: <span className="text-slate-300 font-bold">{market.changePend}</span></span>
-                          <span>Sold: <span className="text-white font-bold">{market.sold} (7D)</span></span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -664,15 +695,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-16">
 
           {/* Left Column: Mighty Tall Widescreen Portrait Frame */}
-          <div className="lg:col-span-6 flex justify-center w-full">
-            <div className="relative w-full max-w-[460px] aspect-[4/5] rounded-lg overflow-hidden border-2 border-slate-200/80 shadow-2xl bg-slate-100 group">
+          <div className="lg:col-span-6 flex items-stretch justify-center w-full">
+            <div className="relative w-full max-w-[460px] min-h-[500px] rounded-lg overflow-hidden shadow-2xl bg-slate-900 group">
               <img
                 src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
                 alt="Valeria Afanasieva Portrait"
                 className="w-full h-full object-cover object-top filter contrast-[1.01] brightness-[1.01] transition-transform duration-700 group-hover:scale-101"
               />
               {/* Subtle luxury vignette gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
                 <Badge className="bg-[#111827]/90 backdrop-blur-md text-[#E31B23] border border-[#E31B23]/20 text-[8.5px] font-mono tracking-widest uppercase px-3 py-1 font-bold">
                   Active Advisor
