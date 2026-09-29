@@ -183,29 +183,29 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
     <div className="relative w-full bg-[#FCFBFA] text-[#111827] overflow-x-hidden font-sans">
 
       {/* Cinematic Drone Video Hero Section */}
-      <div className="relative w-full h-[85vh] overflow-hidden flex items-center justify-center bg-black">
+      <div className="relative w-full h-[85vh] overflow-hidden flex items-center justify-center bg-[#FCFBFA]">
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-75"
+          className="absolute inset-0 w-full h-full object-cover opacity-85"
           poster={mediaConfig.ambientVideo.posterUrl}
         >
           <source src={mediaConfig.ambientVideo.videoUrl} type="video/mp4" />
         </video>
-        {/* Deep luxurious charcoal vignette overlay to blend with typography and enforce premium tone */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#FCFBFA]" />
+        {/* Lighter, ultra-premium frosted white and airy overlay to blend with light default theme */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/75 to-[#FCFBFA]" />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center space-y-6">
-          <Badge className="bg-black/40 hover:bg-black/50 text-white border border-white/20 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md">
+          <Badge className="bg-white/85 hover:bg-white text-slate-800 border border-slate-200/80 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md shadow-xs">
             The Agency · South Florida Luxury Portfolio
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none drop-shadow-md text-white uppercase">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-slate-900 uppercase">
             Premium Beachfront Residences
           </h1>
-          <p className="text-sm md:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed drop-shadow-xs font-light">
+          <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed font-normal">
             Discover hand-selected penthouses and architectural masterpieces curated across Sunny Isles, Brickell, and Coral Gables, fully prepared for immediate private consultation.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -218,7 +218,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </Button>
             <a
               href="#portfolio"
-              className="w-full sm:w-auto h-11 px-6 border border-white/40 text-white hover:bg-white/10 hover:border-white/60 text-[12px] font-mono font-bold tracking-wider uppercase rounded-[4px] backdrop-blur-xs transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto h-11 px-6 border border-slate-300 text-slate-800 bg-white/60 hover:bg-white hover:border-slate-400 text-[12px] font-mono font-bold tracking-wider uppercase rounded-[4px] backdrop-blur-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
             >
               <span>Explore Portfolio</span>
               <ArrowRight className="h-4 w-4" />
