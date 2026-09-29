@@ -785,7 +785,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 onClick={onOpenConcierge}
                 className="h-11 px-6 bg-[#111827] hover:bg-[#1f2937] text-white text-[11px] font-mono font-bold tracking-wider uppercase rounded-[3px] cursor-pointer flex items-center justify-center gap-2 shadow-sm"
               >
-                <MessageSquare className="h-4 w-4 text-[#E31B23]" />
+                <MessageSquare className="h-4 w-4 text-white" />
                 <span>Consult Her Office</span>
               </Button>
               <div className="flex items-center gap-2 text-[10.5px] text-[#475569] font-mono uppercase tracking-wider font-semibold">
