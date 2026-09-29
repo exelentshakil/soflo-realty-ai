@@ -54,11 +54,11 @@ export const mediaConfig: MediaConfig = {
     }
   ],
   ambientVideo: {
-    "id": "8091807",
-    "videoUrl": "https://videos.pexels.com/video-files/8091807/8091807-uhd_2160_3840_25fps.mp4",
-    "posterUrl": "https://images.pexels.com/photos/7031408/pexels-photo-7031408.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
-    "width": 1920,
-    "height": 1080
+    "id": "3120157",
+    "videoUrl": "https://videos.pexels.com/video-files/3120157/3120157-uhd_3840_2160_25fps.mp4",
+    "posterUrl": "https://images.pexels.com/photos/3120157/pexels-photo-3120157.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "width": 3840,
+    "height": 2160
   }
 };
 

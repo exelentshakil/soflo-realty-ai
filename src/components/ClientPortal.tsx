@@ -186,7 +186,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#FCFBFA]" />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center space-y-6">
-          <Badge className="bg-black/40 hover:bg-black/50 text-white border border-[#E31B23]/40 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md">
+          <Badge className="bg-black/40 hover:bg-black/50 text-white border border-white/20 px-3.5 py-1 text-[10px] font-mono tracking-widest uppercase backdrop-blur-md">
             The Agency · South Florida Luxury Portfolio
           </Badge>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none drop-shadow-md text-white uppercase">
@@ -363,14 +363,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                    <div className="text-[10.5px] text-[#475569] font-mono leading-tight">
-                      <div>Developer: <span className="font-bold text-[#111827]">{listing.developer}</span></div>
+                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="text-[10.5px] text-[#475569] font-mono leading-tight min-w-0 flex-1">
+                      <div className="truncate">Developer: <span className="font-bold text-[#111827]">{listing.developer}</span></div>
                       <div className="mt-1">Completion: <span className="font-bold text-[#111827]">{listing.completionYear}</span></div>
                     </div>
                     <Button
                       onClick={onOpenConcierge}
-                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase bg-slate-900 hover:bg-slate-800 text-white rounded-[3px] px-4 cursor-pointer flex items-center gap-1.5 transition-all"
+                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase bg-slate-900 hover:bg-slate-800 text-white rounded-[3px] px-4 cursor-pointer flex items-center justify-center gap-1.5 transition-all shrink-0 w-full sm:w-auto"
                     >
                       <Calendar className="h-3.5 w-3.5" />
                       <span>Book Showing</span>
