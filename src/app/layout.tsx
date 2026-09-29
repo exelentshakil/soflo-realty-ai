@@ -16,8 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="https://media.pandaidx.com/app/65368b3913315d8344407428/settings/favicon/f5a56a24-a675-4f92-8c29-23b67fc82a34.png" />
+        <link rel="apple-touch-icon" href="https://media.pandaidx.com/app/65368b3913315d8344407428/settings/favicon/f5a56a24-a675-4f92-8c29-23b67fc82a34.png" />
         {/* Preload primary Söhne & Söhne Mono font cuts for zero layout shift (CLS 0.00) */}
         <link rel="preload" href="/sohne-font-family/TestSohne-Buch-BF663d89cd32e6a.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/sohne-font-family/TestSohne-Halbfett-BF663d89cd2d67b.otf" as="font" type="font/otf" crossOrigin="anonymous" />
