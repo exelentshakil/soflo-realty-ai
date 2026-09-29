@@ -256,8 +256,12 @@ className="w-full sm:w-[460px] p-0 border-l border-[var(--color-border)] bg-[var
 {/* Header Branding */}
 <SheetHeader className="p-4 border-b border-[var(--color-border)] flex flex-row items-center justify-between shrink-0 bg-[var(--color-panel-subtle)]">
 <div className="flex items-center gap-2.5">
-<div className="h-8 w-8 rounded-full bg-slate-900 flex items-center justify-center border border-white/20 shadow-xs">
-<span className="font-serif font-bold text-xs text-white">VA</span>
+<div className="h-9 w-9 rounded-full overflow-hidden border border-slate-200 shadow-sm shrink-0 bg-slate-100">
+  <img
+    src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
+    alt="Valeria Avatar"
+    className="h-full w-full object-cover object-top"
+  />
 </div>
 <div className="text-left">
 <SheetTitle className="text-[13.5px] font-bold tracking-tight text-[var(--color-text-primary)]">
@@ -284,9 +288,13 @@ msg.role === 'user' ? 'justify-end' : 'justify-start'
 >
 <div className="flex gap-2 max-w-[85%]">
 {msg.role === 'assistant' && (
-<div className="h-7 w-7 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
-<Bot className="h-3.5 w-3.5 text-slate-300" />
-</div>
+  <div className="h-7 w-7 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-0.5 bg-slate-100">
+    <img
+      src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
+      alt="Valeria Assistant"
+      className="h-full w-full object-cover object-top"
+    />
+  </div>
 )}
 <div className="flex flex-col space-y-1">
 <div
@@ -310,8 +318,12 @@ msg.role === 'user'
 {loading && (
 <div className="flex w-full justify-start">
 <div className="flex gap-2 max-w-[85%]">
-<div className="h-7 w-7 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0 shadow-2xs mt-0.5 animate-spin">
-<Bot className="h-3.5 w-3.5 text-slate-300 animate-pulse" />
+<div className="h-7 w-7 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-0.5 animate-pulse bg-slate-100">
+  <img
+    src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
+    alt="Valeria Assistant"
+    className="h-full w-full object-cover object-top"
+  />
 </div>
 <div className="rounded-xl px-3.5 py-2 text-[13px] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-muted)] rounded-tl-xs shadow-3xs flex items-center gap-1.5 font-mono">
 <span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-ping"></span>

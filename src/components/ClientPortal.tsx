@@ -333,11 +333,11 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   <Badge className="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-sm text-white border border-slate-800 text-[9px] font-mono tracking-wider uppercase px-2.5 py-0.5 font-bold">
                     {listing.neighborhood}
                   </Badge>
-                  <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                    <span className="text-white font-extrabold text-xl tracking-tight uppercase">
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-col items-start gap-1.5 text-left">
+                    <span className="text-white font-extrabold text-lg sm:text-xl tracking-tight uppercase leading-tight drop-shadow-sm">
                       {listing.name}
                     </span>
-                    <span className="text-white font-mono text-[11px] font-bold bg-slate-900/90 backdrop-blur-sm px-2.5 py-0.5 rounded-[2px] tracking-wider border border-slate-800">
+                    <span className="text-white font-mono text-[10.5px] font-bold bg-slate-900/95 backdrop-blur-sm px-2.5 py-0.5 rounded-[2px] tracking-wider border border-slate-800">
                       {listing.priceRange}
                     </span>
                   </div>
@@ -611,7 +611,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {(activeCountyTab === 'broward' ? browardSubmarkets : palmBeachSubmarkets).map((market, idx) => (
               <div
                 key={idx}
-                className="group rounded-md border border-slate-200/80 bg-white/70 backdrop-blur-md hover:bg-white/95 hover:border-slate-300 transition-all duration-300 p-5 flex flex-col justify-between space-y-4 shadow-xs"
+                className="group rounded-lg border border-slate-200 bg-white hover:border-slate-300 shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between space-y-4"
               >
                 {/* Title & Status Indicator */}
                 <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
