@@ -10,7 +10,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#0A2E2B] text-white py-16 px-4 sm:px-6 lg:px-8 border-t border-[#134441]">
+    <footer className="w-full bg-[#111827] text-white py-16 px-4 sm:px-6 lg:px-8 border-t border-[#1F2937]">
       <div className="mx-auto max-w-5xl space-y-12">
 
         {/* Main Footer Content */}
@@ -19,17 +19,17 @@ export function Footer() {
           {/* Column 1: Brand & Bio */}
           <div className="space-y-4">
             <div className="flex flex-col">
-              <span className="text-[15px] font-serif font-extrabold tracking-widest uppercase text-[#C5A880]">
+              <span className="text-[15px] font-sans font-extrabold tracking-widest uppercase text-[#E31B23]">
                 Valeria Afanasieva
               </span>
-              <span className="text-[9px] font-mono tracking-widest text-[#81A3A0] uppercase mt-1">
-                Luxury Real Estate Group
+              <span className="text-[9px] font-mono tracking-widest text-[#94A3B8] uppercase mt-1">
+                The Agency South Florida
               </span>
             </div>
-            <p className="text-[11.5px] text-[#A6C0BE] leading-relaxed font-sans font-light">
+            <p className="text-[12.5px] text-[#E2E8F0] leading-relaxed font-sans font-light">
               Providing bespoke client advisory services and ultra-luxury residential representation across South Florida's coastal submarkets.
             </p>
-            <div className="flex items-center gap-3.5 pt-2 text-[#C5A880]">
+            <div className="flex items-center gap-3.5 pt-2 text-[#E31B23]">
               <a href="#" className="hover:text-white transition-colors" aria-label="Instagram">
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -60,24 +60,24 @@ export function Footer() {
 
           {/* Column 2: Office Locations */}
           <div className="space-y-4">
-            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#C5A880] uppercase">
+            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#E31B23] uppercase">
               Our Offices
             </h4>
-            <div className="space-y-3.5 text-[11.5px] text-[#A6C0BE] font-sans font-light">
+            <div className="space-y-3.5 text-[12.5px] text-[#E2E8F0] font-sans font-light">
               <div className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#C5A880] shrink-0 mt-0.5" />
+                <MapPin className="h-4 w-4 text-[#E31B23] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-white">Miami Beach Office</p>
-                  <p className="text-[#81A3A0]">1682 Jefferson Avenue</p>
-                  <p className="text-[#81A3A0]">Miami Beach, FL 33139</p>
+                  <p className="text-[#94A3B8]">1682 Jefferson Avenue</p>
+                  <p className="text-[#94A3B8]">Miami Beach, FL 33139</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#C5A880] shrink-0 mt-0.5" />
+                <MapPin className="h-4 w-4 text-[#E31B23] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-white">Coral Gables Office</p>
-                  <p className="text-[#81A3A0]">4000 Ponce de Leon Blvd, Suite 700</p>
-                  <p className="text-[#81A3A0]">Coral Gables, FL 33146</p>
+                  <p className="text-[#94A3B8]">4000 Ponce de Leon Blvd, Suite 700</p>
+                  <p className="text-[#94A3B8]">Coral Gables, FL 33146</p>
                 </div>
               </div>
             </div>
@@ -85,20 +85,24 @@ export function Footer() {
 
           {/* Column 3: Contact & Concierge */}
           <div className="space-y-4">
-            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#C5A880] uppercase">
+            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#E31B23] uppercase">
               Direct Contact
             </h4>
-            <div className="space-y-3 text-[11.5px] text-[#A6C0BE] font-sans font-light">
+            <div className="space-y-3 text-[12.5px] text-[#E2E8F0] font-sans font-light">
               <div className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-[#C5A880] shrink-0" />
-                <span className="text-white font-medium">+1 (754) 276-7313</span>
+                <Phone className="h-4 w-4 text-[#E31B23] shrink-0" />
+                <a href="tel:+17542927012" className="text-white font-medium hover:text-[#E31B23] transition-colors">
+                  +1 (754) 292-7012
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-[#C5A880] shrink-0" />
-                <span className="text-white truncate">valeria.a@theagencyre.com</span>
+                <Mail className="h-4 w-4 text-[#E31B23] shrink-0" />
+                <a href="mailto:valeria25.12@icloud.com" className="text-white truncate hover:text-[#E31B23] transition-colors">
+                  valeria25.12@icloud.com
+                </a>
               </div>
               <div className="pt-2">
-                <div className="p-3.5 rounded bg-[#134441]/40 border border-[#134441] text-[11px] leading-relaxed text-[#A6C0BE] font-sans font-light">
+                <div className="p-3.5 rounded bg-[#1F2937]/50 border border-[#374151] text-[11.5px] leading-relaxed text-[#E2E8F0] font-sans font-light">
                   Affiliated with <span className="text-white font-semibold">The Agency</span>. Representing South Florida's premier architectural and coastal residential assets.
                 </div>
               </div>
@@ -108,13 +112,13 @@ export function Footer() {
         </div>
 
         {/* Compliance & Legal Footer Bar */}
-        <div className="pt-8 border-t border-[#134441] flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#81A3A0] font-mono uppercase tracking-wider">
+        <div className="pt-8 border-t border-[#1F2937] flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#94A3B8] font-mono uppercase tracking-wider">
           <div className="text-center md:text-left leading-normal">
             © {new Date().getFullYear()} Valeria Afanasieva Group. All rights reserved.
           </div>
           <div className="flex items-center gap-4.5">
             <span className="flex items-center gap-1.5 font-sans font-light">
-              <Home className="h-3.5 w-3.5 text-[#C5A880]" />
+              <Home className="h-3.5 w-3.5 text-[#E31B23]" />
               <span>Equal Housing Opportunity</span>
             </span>
             <span className="font-sans font-light">REALTOR®</span>

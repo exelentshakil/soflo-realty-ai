@@ -215,7 +215,7 @@ export function AiConciergeDrawer({
                   <span className="font-sans font-bold text-[13px] text-[var(--color-text-primary)] truncate max-w-[140px]">
                     {property.name}
                   </span>
-                  <Badge variant="outline" className="bg-[#C5A880]/10 text-[#C5A880] border-[#C5A880]/20 text-[10px] font-mono whitespace-nowrap px-1.5 py-0">
+                  <Badge variant="outline" className="bg-[#E31B23]/10 text-[#E31B23] border-[#E31B23]/20 text-[10px] font-mono whitespace-nowrap px-1.5 py-0">
                     VIP Matching
                   </Badge>
                 </div>
@@ -292,7 +292,7 @@ msg.role === 'user' ? 'justify-end' : 'justify-start'
 <div
 className={`rounded-xl px-3.5 py-2 text-[13px] leading-relaxed shadow-3xs ${
 msg.role === 'user'
-? 'bg-[#0A2E2B] text-white border border-[#C5A880]/20 rounded-tr-xs'
+? 'bg-[#E31B23] text-white border border-[#E31B23]/20 rounded-tr-xs'
 : 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] rounded-tl-xs'
 }`}
 >
@@ -334,14 +334,14 @@ className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] f
 value={input}
 onChange={e => setInput(e.target.value)}
 placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
-className="flex-1 h-9.5 text-xs sm:text-[13px] border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus-visible:bg-[var(--color-surface)] focus-visible:ring-1 focus-visible:ring-[#C5A880] focus-visible:border-[#C5A880] rounded-[4px] px-3 shadow-2xs"
+className="flex-1 h-9.5 text-xs sm:text-[13px] border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus-visible:bg-[var(--color-surface)] focus-visible:ring-1 focus-visible:ring-[#E31B23] focus-visible:border-[#E31B23] rounded-[4px] px-3 shadow-2xs"
 disabled={loading}
 />
 <Button
 type="submit"
 size="sm"
 disabled={loading || !input.trim()}
-className="h-9.5 w-9.5 p-0 bg-[#C5A880] hover:bg-[#B3966E] text-white rounded-[4px] shadow-2xs cursor-pointer shrink-0"
+className="h-9.5 w-9.5 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[4px] shadow-2xs cursor-pointer shrink-0"
 >
 <Send className="h-4 w-4" />
 </Button>

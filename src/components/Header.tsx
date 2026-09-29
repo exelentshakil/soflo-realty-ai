@@ -113,18 +113,18 @@ export function Header({
         ) : (
           /* Public Consumer Menu Links (Hidden on mobile) */
           <nav className="hidden md:flex items-center gap-8 text-[11px] font-mono font-bold uppercase tracking-widest">
-            <a href="#portfolio" className="text-[var(--color-text-primary)] hover:text-[#C5A880] transition-colors">
+            <a href="#portfolio" className="text-[var(--color-text-primary)] hover:text-[#E31B23] transition-colors">
               Residences
             </a>
-            <a href="#submarkets" className="text-[var(--color-text-primary)] hover:text-[#C5A880] transition-colors">
+            <a href="#portfolio" className="text-[var(--color-text-primary)] hover:text-[#E31B23] transition-colors">
               Neighborhoods
             </a>
-            <a href="#about" className="text-[var(--color-text-primary)] hover:text-[#C5A880] transition-colors">
+            <a href="#about" className="text-[var(--color-text-primary)] hover:text-[#E31B23] transition-colors">
               About Valeria
             </a>
             <button
               onClick={onOpenConcierge}
-              className="text-[#C5A880] hover:text-[#134441] dark:hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 uppercase font-mono font-bold"
+              className="text-[#E31B23] hover:text-[#C62828] dark:hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 uppercase font-mono font-bold"
             >
               <Sparkles className="h-3 w-3 animate-pulse" />
               <span>VIP AI Concierge</span>
@@ -196,9 +196,9 @@ export function Header({
             /* Consumer VIP Request Button */
             <Button
               onClick={onOpenConcierge}
-              className="hidden sm:flex h-8 text-[10.5px] font-bold tracking-widest uppercase bg-[#0A2E2B] hover:bg-[#134441] text-white border border-[#C5A880]/30 rounded-[4px] px-3.5 shadow-xs cursor-pointer items-center gap-1.5"
+              className="hidden sm:flex h-8 text-[10.5px] font-bold tracking-widest uppercase bg-[#E31B23] hover:bg-[#C62828] text-white border border-[#E31B23]/30 rounded-[4px] px-3.5 shadow-xs cursor-pointer items-center gap-1.5"
             >
-              <MessageSquare className="h-3.5 w-3.5 text-[#C5A880]" />
+              <MessageSquare className="h-3.5 w-3.5 text-white" />
               <span>Inquire VIP</span>
             </Button>
           )}
@@ -241,21 +241,21 @@ export function Header({
           <a
             href="#portfolio"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#C5A880] transition-colors"
+            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#E31B23] transition-colors"
           >
             Residences
           </a>
           <a
-            href="#submarkets"
+            href="#portfolio"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#C5A880] transition-colors"
+            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#E31B23] transition-colors"
           >
             Neighborhoods
           </a>
           <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#C5A880] transition-colors"
+            className="text-[11px] font-mono font-bold uppercase tracking-widest text-[var(--color-text-primary)] py-1 hover:text-[#E31B23] transition-colors"
           >
             About Valeria
           </a>
@@ -264,7 +264,7 @@ export function Header({
               setMobileMenuOpen(false);
               onOpenConcierge?.();
             }}
-            className="text-left text-[11px] font-mono font-bold uppercase tracking-widest text-[#C5A880] py-1 flex items-center gap-1.5 cursor-pointer"
+            className="text-left text-[11px] font-mono font-bold uppercase tracking-widest text-[#E31B23] py-1 flex items-center gap-1.5 cursor-pointer"
           >
             <Sparkles className="h-3 w-3 animate-pulse" />
             <span>VIP AI Concierge</span>
