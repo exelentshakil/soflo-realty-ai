@@ -564,43 +564,43 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       </section>
 
       {/* OVERHAULED: Interactive Broward & Palm Beach County Coverage */}
-      <section className="py-24 bg-[#111827] text-white">
+      <section className="py-24 bg-slate-50/60 border-y border-slate-200/60 text-slate-900">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-14 text-center max-w-xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
               Statewide Coverage Network
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-tight">
               Extended Luxury Submarkets
             </h2>
-            <p className="text-sm text-[#94A3B8] leading-relaxed font-normal">
+            <p className="text-sm text-slate-600 leading-relaxed font-normal">
               Confidential placement metrics for key enclaves throughout Broward and Palm Beach Counties.
             </p>
           </div>
 
           {/* Interactive County Tab Selection */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex flex-col sm:flex-row rounded-md bg-slate-900 p-1 border border-slate-800/80 shadow-2xl">
+            <div className="inline-flex flex-col sm:flex-row rounded-md bg-slate-100 p-1 border border-slate-200/80 shadow-xs">
               <button
                 onClick={() => setActiveCountyTab('broward')}
                 className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
                   activeCountyTab === 'broward'
-                    ? 'bg-[#1F2937] text-white border border-slate-700/50 shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                    ? 'bg-white text-slate-900 border border-slate-200 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-800 border border-transparent'
                 }`}
               >
-                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'broward' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-600'}`}></span>
+                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'broward' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-400'}`}></span>
                 <span>Broward County (Fort Lauderdale)</span>
               </button>
               <button
                 onClick={() => setActiveCountyTab('palmbeach')}
                 className={`px-6 py-2.5 rounded-sm text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer ${
                   activeCountyTab === 'palmbeach'
-                    ? 'bg-[#1F2937] text-white border border-slate-700/50 shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200 border border-transparent'
+                    ? 'bg-white text-slate-900 border border-slate-200 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-800 border border-transparent'
                 }`}
               >
-                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'palmbeach' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-600'}`}></span>
+                <span className={`h-1.5 w-1.5 rounded-full ${activeCountyTab === 'palmbeach' ? 'bg-[#E31B23] animate-pulse' : 'bg-slate-400'}`}></span>
                 <span>Palm Beach County (Boca & Wellington)</span>
               </button>
             </div>
@@ -611,37 +611,37 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {(activeCountyTab === 'broward' ? browardSubmarkets : palmBeachSubmarkets).map((market, idx) => (
               <div
                 key={idx}
-                className="group rounded-md border border-slate-800/80 bg-slate-900/40 hover:bg-slate-900/80 hover:border-slate-700 transition-all duration-300 p-5 flex flex-col justify-between space-y-4 shadow-xs"
+                className="group rounded-md border border-slate-200/80 bg-white/70 backdrop-blur-md hover:bg-white/95 hover:border-slate-300 transition-all duration-300 p-5 flex flex-col justify-between space-y-4 shadow-xs"
               >
                 {/* Title & Status Indicator */}
-                <div className="flex items-center justify-between border-b border-slate-800/60 pb-3">
-                  <span className="font-extrabold text-[13px] text-white tracking-wide uppercase font-sans truncate max-w-[180px]">
+                <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
+                  <span className="font-extrabold text-[13px] text-slate-900 tracking-wide uppercase font-sans truncate max-w-[180px]">
                     {market.name}
                   </span>
                   <span className="flex items-center gap-1.5 shrink-0">
                     <span className="h-1 w-1 rounded-full bg-[#E31B23] opacity-80"></span>
-                    <span className="text-[8px] font-mono font-bold text-slate-500 uppercase tracking-widest">ACTIVE PORTAL</span>
+                    <span className="text-[8px] font-mono font-bold text-slate-400 uppercase tracking-widest">ACTIVE PORTAL</span>
                   </span>
                 </div>
 
                 {/* Submarket Metrics Split Ledger */}
                 <div className="grid grid-cols-2 gap-4 text-left">
                   {/* Column 1 */}
-                  <div className="space-y-3 border-r border-slate-800/40 pr-2">
+                  <div className="space-y-3 border-r border-slate-200/40 pr-2">
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
                         FOR SALE
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
                         <span>{market.forSale}</span>
                         <span className="text-[8.5px] text-[#057A55] font-bold">{market.changeSale}</span>
                       </div>
                     </div>
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
                         PENDING
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
                         <span>{market.pending}</span>
                         {(market as any).changePend && (
                           <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changePend}</span>
@@ -653,21 +653,21 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   {/* Column 2 */}
                   <div className="space-y-3 pl-1">
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
                         RENTALS
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
                         <span>{market.forRent}</span>
                         {(market as any).changeRent && (
-                          <span className="text-[8.5px] text-slate-400 font-bold">{(market as any).changeRent}</span>
+                          <span className="text-[8.5px] text-slate-500 font-bold">{(market as any).changeRent}</span>
                         )}
                       </div>
                     </div>
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
                         SOLD
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-white mt-0.5 flex items-baseline gap-1">
+                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
                         <span>{market.sold}</span>
                         {(market as any).changeSold && (
                           <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changeSold}</span>
@@ -678,7 +678,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 </div>
 
                 {/* Submarket Action Trigger */}
-                <div className="pt-3.5 border-t border-slate-800/40 flex items-center justify-between text-[9px] font-mono uppercase text-slate-400 group-hover:text-white transition-colors">
+                <div className="pt-3.5 border-t border-slate-200/60 flex items-center justify-between text-[9px] font-mono uppercase text-slate-500 group-hover:text-slate-900 transition-colors">
                   <span>CONFIDENTIAL METRICS</span>
                   <button
                     onClick={onOpenConcierge}
