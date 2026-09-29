@@ -382,7 +382,7 @@ style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, san
 {/* Input Form Footer */}
 <form
 onSubmit={handleSend}
-className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] flex gap-2.5 items-end shrink-0"
+className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] flex gap-2.5 items-center shrink-0"
 >
 <div className="flex-1 relative">
   <textarea
@@ -391,7 +391,7 @@ className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] f
     value={input}
     onChange={handleInputChange}
     onKeyDown={handleKeyDown}
-    placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
+    placeholder="Ask about Sunny Isles Beach, budget..."
     className="w-full min-h-[56px] max-h-[140px] text-[15px] sm:text-[15px] border border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus:bg-[var(--color-surface)] focus:ring-1 focus:ring-[#E31B23] focus:border-[#E31B23] rounded-[10px] px-4 py-3.5 pr-3 shadow-2xs text-slate-900 dark:text-slate-100 leading-normal resize-none overflow-x-hidden overflow-y-hidden whitespace-pre-wrap break-words outline-none transition-all"
     style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, sans-serif", letterSpacing: "-0.015em" }}
     disabled={loading}
@@ -401,7 +401,7 @@ className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] f
 type="submit"
 size="sm"
 disabled={loading || !input.trim()}
-className="h-11 w-11 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[10px] shadow-2xs cursor-pointer shrink-0 flex items-center justify-center mb-[1px]"
+className="h-11 w-11 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[10px] shadow-2xs cursor-pointer shrink-0 flex items-center justify-center"
 >
 <Send className="h-4.5 w-4.5" />
 </Button>
