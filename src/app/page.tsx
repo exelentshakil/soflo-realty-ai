@@ -1,84 +1,88 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { ClientPortal } from '@/components/ClientPortal';
-import { AgentCockpit } from '@/components/AgentCockpit';
 import { AiConciergeDrawer } from '@/components/AiConciergeDrawer';
-import { ChaosSimulatorModal } from '@/components/ChaosSimulatorModal';
-import { AiGovernanceDrawer } from '@/components/AiGovernanceDrawer';
-import { ExecutionLogDrawer } from '@/components/ExecutionLogDrawer';
 import { Footer } from '@/components/Footer';
 import { siteConfig, type TableRow as RowType } from '@/config/site';
 
 export default function HomePage() {
-  const [viewMode, setViewMode] = useState<'portal' | 'cockpit'>('portal');
   const [conciergeOpen, setConciergeOpen] = useState(false);
-  const [chaosModalOpen, setChaosModalOpen] = useState(false);
-  const [governanceDrawerOpen, setGovernanceDrawerOpen] = useState(false);
-  const [logsDrawerOpen, setLogsDrawerOpen] = useState(false);
 
-  // In-memory data states for live synchronization
-  const [leads, setLeads] = useState<RowType[]>(siteConfig.table.rows);
+  // States with localStorage synchronization so lead captures immediately sync to /admin
+  const [leads, setLeads] = useState<RowType[]>([]);
   const [ghlLogs, setGhlLogs] = useState<any[]>([]);
   const [simulatedOutage, setSimulatedOutage] = useState(false);
 
+  // Load baseline values on mount
+  useEffect(() => {
+    try {
+      const storedLeads = localStorage.getItem('soflo_leads');
+      if (storedLeads) {
+        setLeads(JSON.parse(storedLeads));
+      } else {
+        setLeads(siteConfig.table.rows);
+        localStorage.setItem('soflo_leads', JSON.stringify(siteConfig.table.rows));
+      }
+
+      const storedLogs = localStorage.getItem('soflo_ghl_logs');
+      if (storedLogs) {
+        setGhlLogs(JSON.parse(storedLogs));
+      }
+
+      const storedOutage = localStorage.getItem('soflo_outage');
+      if (storedOutage) {
+        setSimulatedOutage(JSON.parse(storedOutage));
+      }
+    } catch (err) {
+      console.error('Failed to initialize local states on mount', err);
+    }
+  }, []);
+
   const handleLeadCaptured = (newLead: any) => {
     setLeads(prev => {
-      // Prevent duplicates if captured in same session
+      // Prevent duplicates in current view
       if (prev.some(lead => lead.payload.email === newLead.payload.email && lead.payload.email !== 'Pending capture')) {
         return prev;
       }
-      return [newLead, ...prev];
+      const updated = [newLead, ...prev];
+      try {
+        localStorage.setItem('soflo_leads', JSON.stringify(updated));
+      } catch (err) {
+        console.error('Failed to write leads to localStorage', err);
+      }
+      return updated;
     });
   };
 
   const handleGhlLogUpdated = (newLog: any) => {
-    setGhlLogs(prev => [newLog, ...prev]);
-  };
-
-  const handleToggleOutage = () => {
-    setSimulatedOutage(prev => !prev);
+    setGhlLogs(prev => {
+      const updated = [newLog, ...prev];
+      try {
+        localStorage.setItem('soflo_ghl_logs', JSON.stringify(updated));
+      } catch (err) {
+        console.error('Failed to write GHL logs to localStorage', err);
+      }
+      return updated;
+    });
   };
 
   return (
     <div className="min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] flex flex-col justify-between">
       <div>
         <Header
-          viewMode={viewMode}
-          onViewModeChange={setViewMode}
-          onOpenChaosModal={() => setChaosModalOpen(true)}
-          onOpenGovernanceDrawer={() => setGovernanceDrawerOpen(true)}
-          onOpenLogsDrawer={() => setLogsDrawerOpen(true)}
+          onOpenConcierge={() => setConciergeOpen(true)}
+          isAdmin={false}
         />
 
         <main className="w-full max-w-full min-w-0 overflow-x-hidden">
-          {viewMode === 'portal' ? (
-            <ClientPortal
-              onOpenConcierge={() => setConciergeOpen(true)}
-              onShowlisting={(property) => {
-                setConciergeOpen(true);
-              }}
-            />
-          ) : (
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-              {/* Header section in dashboard */}
-              <div className="flex flex-col space-y-1">
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#533AFD]">
-                  Operational Command Center
-                </span>
-                <h2 className="text-2xl font-bold tracking-tight text-[var(--color-text-primary)]">
-                  Real-Time Lead Telemetry & SEO Metrics
-                </h2>
-              </div>
-              <AgentCockpit
-                leads={leads}
-                ghlLogs={ghlLogs}
-                simulatedOutage={simulatedOutage}
-                onToggleOutage={handleToggleOutage}
-              />
-            </div>
-          )}
+          <ClientPortal
+            onOpenConcierge={() => setConciergeOpen(true)}
+            onShowlisting={(property) => {
+              setConciergeOpen(true);
+            }}
+          />
         </main>
       </div>
 
@@ -92,23 +96,6 @@ export default function HomePage() {
         onGhlLogUpdated={handleGhlLogUpdated}
         simulatedOutage={simulatedOutage}
       />
-
-      {/* Supplementary dialog overlays */}
-      <ChaosSimulatorModal
-        open={chaosModalOpen}
-        onOpenChange={setChaosModalOpen}
-      />
-
-      <AiGovernanceDrawer
-        open={governanceDrawerOpen}
-        onOpenChange={setGovernanceDrawerOpen}
-      />
-
-      <ExecutionLogDrawer
-        open={logsDrawerOpen}
-        onOpenChange={setLogsDrawerOpen}
-      />
     </div>
   );
 }
-

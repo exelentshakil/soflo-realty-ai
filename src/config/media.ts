@@ -47,8 +47,8 @@ export const mediaConfig: MediaConfig = {
       "avg_color": "#B7AEB9"
     },
     {
-      "id": "53610",
-      "url": "https://images.pexels.com/photos/53610/pexels-photo-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "id": "1105754",
+      "url": "https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Beautiful geometric architectural details of a luxury high-rise condominium.",
       "avg_color": "#BCC8DA"
     }

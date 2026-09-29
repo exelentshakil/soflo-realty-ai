@@ -78,7 +78,7 @@ export const luxuryListings: LuxuryListing[] = [
     neighborhood: 'Brickell',
     priceRange: '$1,400,000 to $6,500,000',
     specs: '1 to 4 Bedrooms | 1,100 to 3,200 Sq.Ft.',
-    image: 'https://images.pexels.com/photos/53610/pexels-photo-53610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: 'https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     description: 'Classic Italian elegance in the center of Miami. Impeccable residential service designed by Cipriani, classic elegant materials, custom kitchens, and floor-to-ceiling glass doors opening onto expansive Brickell balconies.',
     amenities: [
       'Private Cipriani dining for residents',

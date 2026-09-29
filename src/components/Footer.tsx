@@ -2,160 +2,126 @@
 
 import React from 'react';
 import {
-  ShieldCheck,
-  Cpu,
-  Workflow,
-  ExternalLink,
-  Code2,
-  Terminal,
-  Activity,
-  Award,
-  CheckCircle2,
-  Layers,
-  Sparkles,
+  MapPin,
+  Phone,
+  Mail,
+  Home,
 } from 'lucide-react';
-import { siteConfig } from '@/config/site';
-import { BrandLogoMark } from '@/components/BrandLogo';
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-[var(--color-border)] bg-[var(--color-surface)] py-12 px-4 sm:px-6 lg:px-8 mt-16">
-      <div className="mx-auto max-w-7xl">
-        {/* Balanced 3-Pillar Architecture Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10 items-stretch">
-          {/* Pillar 1: Platform & Systems Mission */}
-          <div className="space-y-2.5 flex flex-col">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
-              Systems Platform
-            </h4>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3.5 text-xs">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <BrandLogoMark className="h-8 w-8" />
-                  <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                    <span className="text-base font-extrabold tracking-tight text-[var(--color-text-primary)] whitespace-nowrap">
-                      {siteConfig.name}
-                    </span>
-                    <span className="rounded-full bg-[#533AFD]/10 dark:bg-[#7A68FF]/20 px-2.5 py-0.5 text-[10px] font-mono font-bold text-[#533AFD] dark:text-[#7A68FF] border border-[#533AFD]/20 dark:border-[#7A68FF]/30 whitespace-nowrap shrink-0">
-                      {siteConfig.badge}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-                  {siteConfig.description}
-                </p>
-              </div>
+    <footer className="w-full bg-[#0A2E2B] text-white py-16 px-4 sm:px-6 lg:px-8 border-t border-[#134441]">
+      <div className="mx-auto max-w-5xl space-y-12">
 
-              {/* Verified Platform Status Strip */}
-              <div className="pt-2.5 border-t border-[var(--color-border)] flex items-center justify-between gap-2 text-xs font-mono">
-                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium whitespace-nowrap min-w-0">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                  <span className="text-[11px] font-semibold truncate">Multi-Provider Fallback Ready</span>
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+
+          {/* Column 1: Brand & Bio */}
+          <div className="space-y-4">
+            <div className="flex flex-col">
+              <span className="text-[15px] font-serif font-extrabold tracking-widest uppercase text-[#C5A880]">
+                Valeria Afanasieva
+              </span>
+              <span className="text-[9px] font-mono tracking-widest text-[#81A3A0] uppercase mt-1">
+                Luxury Real Estate Group
+              </span>
+            </div>
+            <p className="text-[11.5px] text-[#A6C0BE] leading-relaxed font-sans font-light">
+              Providing bespoke client advisory services and ultra-luxury residential representation across South Florida's coastal submarkets.
+            </p>
+            <div className="flex items-center gap-3.5 pt-2 text-[#C5A880]">
+              <a href="#" className="hover:text-white transition-colors" aria-label="Instagram">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" className="hover:text-white transition-colors" aria-label="Facebook">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" className="hover:text-white transition-colors" aria-label="LinkedIn">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href="#" className="hover:text-white transition-colors" aria-label="YouTube">
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19c1.71.46 8.59.46 8.59.46s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Office Locations */}
+          <div className="space-y-4">
+            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#C5A880] uppercase">
+              Our Offices
+            </h4>
+            <div className="space-y-3.5 text-[11.5px] text-[#A6C0BE] font-sans font-light">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="h-4 w-4 text-[#C5A880] shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Miami Beach Office</p>
+                  <p className="text-[#81A3A0]">1682 Jefferson Avenue</p>
+                  <p className="text-[#81A3A0]">Miami Beach, FL 33139</p>
                 </div>
-                <span className="inline-flex items-center rounded-md bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[10px] font-mono font-semibold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 whitespace-nowrap shrink-0">
-                  100% Codebase Ownership
-                </span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="h-4 w-4 text-[#C5A880] shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-white">Coral Gables Office</p>
+                  <p className="text-[#81A3A0]">4000 Ponce de Leon Blvd, Suite 700</p>
+                  <p className="text-[#81A3A0]">Coral Gables, FL 33146</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Pillar 2: Systems Architecture & Technical Specs */}
-          <div className="space-y-2.5 flex flex-col">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
-              Systems Architecture
+          {/* Column 3: Contact & Concierge */}
+          <div className="space-y-4">
+            <h4 className="text-[11px] font-mono font-bold tracking-widest text-[#C5A880] uppercase">
+              Direct Contact
             </h4>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3.5 text-xs">
-              <div className="space-y-2">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2 text-[11px] font-mono text-[var(--color-text-secondary)]">
-                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] px-2.5 py-1.5 shadow-2xs">
-                    <Terminal className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                    <span className="truncate">Next.js 15 Core</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] px-2.5 py-1.5 shadow-2xs">
-                    <Cpu className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                    <span className="truncate">Dual-Model AI Fallback</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] px-2.5 py-1.5 shadow-2xs">
-                    <Workflow className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                    <span className="truncate">Inngest / Event Queues</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] px-2.5 py-1.5 shadow-2xs">
-                    <Code2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                    <span className="truncate">TypeScript / Python</span>
-                  </div>
-                </div>
-                <p className="text-[11px] text-[var(--color-text-muted)] leading-relaxed pt-1">
-                  Engineered with strict separation of concerns: deterministic math, schema enforcement, zero-downtime AI routing, and sub-50ms database operations.
-                </p>
+            <div className="space-y-3 text-[11.5px] text-[#A6C0BE] font-sans font-light">
+              <div className="flex items-center gap-2.5">
+                <Phone className="h-4 w-4 text-[#C5A880] shrink-0" />
+                <span className="text-white font-medium">+1 (305) 555-4848</span>
               </div>
-
-              <div className="pt-2.5 border-t border-[var(--color-border)] flex items-center justify-between text-xs font-mono text-[var(--color-text-muted)]">
-                <span>Deployment: Vercel Edge</span>
-                <span>Database: Supabase / RDS</span>
+              <div className="flex items-center gap-2.5">
+                <Mail className="h-4 w-4 text-[#C5A880] shrink-0" />
+                <span className="text-white truncate">valeria@afanasievagroup.com</span>
+              </div>
+              <div className="pt-2">
+                <div className="p-3.5 rounded bg-[#134441]/40 border border-[#134441] text-[11px] leading-relaxed text-[#A6C0BE] font-sans font-light">
+                  Affiliated with <span className="text-white font-semibold">Coldwell Banker Realty</span>. Representing South Florida's premier architectural and coastal residential assets.
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Pillar 3: Principal Architect Verification */}
-          <div className="space-y-2.5 flex flex-col">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] font-mono">
-              Principal Architect
-            </h4>
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 flex flex-col justify-between flex-1 space-y-3 text-xs">
-              <div className="space-y-2.5">
-                <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <img
-                      src="/headshot.jpeg"
-                      alt="Shakil Ahmed"
-                      className="h-10 w-10 rounded-full object-cover border-2 border-emerald-500 shadow-xs"
-                      onError={(e) => {
-                        // Fallback avatar if headshot not copied
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                    <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900"></span>
-                  </div>
-                  <div>
-                    <div className="font-bold text-sm text-[var(--color-text-primary)]">
-                      Shakil Ahmed
-                    </div>
-                    <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-                      Founder, BarakahSoft LLC
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
-                  12+ Years Enterprise Systems Engineering. Former Lead Engineer at Legiit ($1M ARR Command Center). Securiti Certified AI Security &amp; Governance Architect (Cert ID: 14B411BCE-14B411A3D-1451CFE76).
-                </p>
-
-              </div>
-
-              <div className="pt-2 border-t border-[var(--color-border)] flex items-center justify-between text-[11px] font-mono">
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                  Verified Upwork Partner
-                </span>
-                <span className="text-[var(--color-text-muted)]">
-                  100% Job Success • 5.0
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-[var(--color-text-muted)]">
-          <div>
-            © {new Date().getFullYear()} {siteConfig.name}. Engineered by BarakahSoft LLC.
+        {/* Compliance & Legal Footer Bar */}
+        <div className="pt-8 border-t border-[#134441] flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#81A3A0] font-mono uppercase tracking-wider">
+          <div className="text-center md:text-left leading-normal">
+            © {new Date().getFullYear()} Valeria Afanasieva Group. All rights reserved.
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
-              <ShieldCheck className="h-3.5 w-3.5" />
-              NIST AI RMF & OWASP LLM Aligned
+          <div className="flex items-center gap-4.5">
+            <span className="flex items-center gap-1.5 font-sans font-light">
+              <Home className="h-3.5 w-3.5 text-[#C5A880]" />
+              <span>Equal Housing Opportunity</span>
             </span>
+            <span className="font-sans font-light">REALTOR®</span>
+            <span className="font-sans font-light">MLS®</span>
           </div>
         </div>
+
       </div>
     </footer>
   );
