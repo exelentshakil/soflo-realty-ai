@@ -23,7 +23,8 @@ export function Footer() {
                 <img
                   src="https://media.pandaidx.com/_image?key=app%2F65368b3913315d8344407428%2Fgeneral%2F1776877572564-logo-print.png&w=640&q=75&f=auto"
                   alt="The Agency Logo"
-                  className="h-8 w-auto object-contain brightness-0 invert opacity-90"
+                  className="h-8 w-auto object-contain opacity-90"
+                  style={{ filter: 'invert(1)' }}
                 />
               </div>
               <span className="text-[15px] font-sans font-extrabold tracking-widest uppercase text-[#E31B23]">
