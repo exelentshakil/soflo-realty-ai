@@ -143,6 +143,11 @@ export function AiConciergeDrawer({
               chat_history_length: chatHistory.length + 1,
               inngest_status: 'demo/workflow.executed queued',
               crm_status: 'GoHighLevel Webhook Enqueued',
+              chat_history: chatHistory.map((m, idx) => ({
+                id: `msg-hist-${idx}-${Date.now()}`,
+                role: m.role,
+                content: m.content
+              })),
             },
           };
           onLeadCaptured(leadPayload);
