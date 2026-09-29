@@ -634,52 +634,82 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 </div>
 
                 {/* Submarket Metrics Split Ledger */}
-                <div className="grid grid-cols-2 gap-4 text-left">
+                <div className="grid grid-cols-2 gap-6 text-left py-2">
                   {/* Column 1 */}
-                  <div className="space-y-3 border-r border-slate-200/40 pr-2">
+                  <div className="space-y-4 border-r border-slate-100 pr-3">
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
+                      <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                         FOR SALE
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
-                        <span>{market.forSale}</span>
-                        <span className="text-[8.5px] text-[#057A55] font-bold">{market.changeSale}</span>
+                      <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
+                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                          {market.forSale}
+                        </span>
+                        {market.changeSale && (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100/60 rounded-[3px] shrink-0">
+                            {market.changeSale}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
+                      <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                         PENDING
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
-                        <span>{market.pending}</span>
-                        {(market as any).changePend && (
-                          <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changePend}</span>
+                      <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
+                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                          {market.pending}
+                        </span>
+                        {(market as any).changePend ? (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100/60 rounded-[3px] shrink-0">
+                            {(market as any).changePend}
+                          </span>
+                        ) : (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                            Stable
+                          </span>
                         )}
                       </div>
                     </div>
                   </div>
 
                   {/* Column 2 */}
-                  <div className="space-y-3 pl-1">
+                  <div className="space-y-4 pl-1">
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
+                      <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                         RENTALS
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
-                        <span>{market.forRent}</span>
-                        {(market as any).changeRent && (
-                          <span className="text-[8.5px] text-slate-500 font-bold">{(market as any).changeRent}</span>
+                      <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
+                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                          {market.forRent}
+                        </span>
+                        {(market as any).changeRent ? (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                            {(market as any).changeRent}
+                          </span>
+                        ) : (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                            Stable
+                          </span>
                         )}
                       </div>
                     </div>
                     <div>
-                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest block">
+                      <span className="text-[9.5px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
                         SOLD
                       </span>
-                      <div className="text-[13.5px] font-mono font-bold text-slate-900 mt-0.5 flex items-baseline gap-1">
-                        <span>{market.sold}</span>
-                        {(market as any).changeSold && (
-                          <span className="text-[8.5px] text-[#057A55] font-bold">{(market as any).changeSold}</span>
+                      <div className="mt-1 flex items-baseline flex-wrap gap-1.5">
+                        <span className="text-2xl font-extrabold text-slate-900 tracking-tight font-sans">
+                          {market.sold}
+                        </span>
+                        {(market as any).changeSold ? (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-100/60 rounded-[3px] shrink-0">
+                            {(market as any).changeSold}
+                          </span>
+                        ) : (
+                          <span className="text-[9.5px] font-mono font-bold px-1.5 py-0.5 bg-slate-50 text-slate-500 border border-slate-100/60 rounded-[3px] shrink-0">
+                            Stable
+                          </span>
                         )}
                       </div>
                     </div>
