@@ -156,7 +156,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       id: 'acqualina',
       title: 'Estates at Acqualina',
       count: 20,
-      image: 'https://images.pexels.com/photos/2093111/pexels-photo-2093111.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/221024/pexels-photo-221024.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'World-renowned oceanfront service, massive family floorplans, and five-star luxury amenities in Sunny Isles.',
     },
     {
@@ -217,9 +217,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
       {/* Floating Value Deck Quick Navigation */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-[#E31B23]/10 bg-white shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-slate-200/80 bg-white shadow-xl">
           <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 text-left">
-            <div className="h-10 w-10 rounded-full bg-[#E31B23]/5 flex items-center justify-center text-[#E31B23] shrink-0 border border-[#E31B23]/20">
+            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
               <Compass className="h-5 w-5" />
             </div>
             <div className="space-y-1">
@@ -230,7 +230,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </div>
           </div>
           <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 border-t md:border-t-0 md:border-x border-slate-100 text-left">
-            <div className="h-10 w-10 rounded-full bg-[#E31B23]/5 flex items-center justify-center text-[#E31B23] shrink-0 border border-[#E31B23]/20">
+            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
               <Shield className="h-5 w-5" />
             </div>
             <div className="space-y-1">
@@ -241,7 +241,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             </div>
           </div>
           <div className="p-4 rounded-md hover:bg-slate-50 transition-colors flex items-start gap-4 border-t md:border-t-0 text-left">
-            <div className="h-10 w-10 rounded-full bg-[#E31B23]/5 flex items-center justify-center text-[#E31B23] shrink-0 border border-[#E31B23]/20">
+            <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 shrink-0 border border-slate-200">
               <TrendingUp className="h-5 w-5" />
             </div>
             <div className="space-y-1">
@@ -257,17 +257,17 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       {/* Editorial Slogan Section (Motto) */}
       <section className="py-14 border-b border-slate-150 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[#E31B23] leading-snug font-bold select-none tracking-tight">
+          <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl text-[#111827] leading-snug font-bold select-none tracking-tight">
             "EXCELLENCE IS A CONSTANT, NOT AN EXCEPTION"
           </p>
-          <div className="h-0.5 w-16 bg-[#E31B23]/40 mx-auto mt-6" />
+          <div className="h-0.5 w-16 bg-slate-300 mx-auto mt-6" />
         </div>
       </section>
 
       {/* Segment Selection Navigation (Luxury Dashboard Feel) */}
       <section id="portfolio" className="pt-20 max-w-6xl mx-auto px-4 scroll-mt-16 text-center">
         <div className="mb-10 max-w-xl mx-auto space-y-3">
-          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E31B23]">
+          <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
             Valeria's Portfolio Core
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] uppercase tracking-tight">
@@ -318,7 +318,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {luxuryListings.map(listing => (
               <div
                 key={listing.id}
-                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-lg hover:border-[#E31B23]/40 transition-all duration-300 flex flex-col"
+                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-xs hover:shadow-lg hover:border-slate-400 transition-all duration-300 flex flex-col"
               >
                 <div className="relative h-64 w-full overflow-hidden">
                   <img
@@ -327,14 +327,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <Badge className="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-sm text-white border border-[#E31B23]/30 text-[9px] font-mono tracking-wider uppercase px-2.5 py-0.5 font-bold">
+                  <Badge className="absolute top-4 left-4 bg-[#111827]/90 backdrop-blur-sm text-white border border-slate-800 text-[9px] font-mono tracking-wider uppercase px-2.5 py-0.5 font-bold">
                     {listing.neighborhood}
                   </Badge>
                   <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
                     <span className="text-white font-extrabold text-xl tracking-tight uppercase">
                       {listing.name}
                     </span>
-                    <span className="text-white font-mono text-[11px] font-bold bg-[#E31B23]/95 backdrop-blur-sm px-2.5 py-0.5 rounded-[2px] tracking-wider border border-[#E31B23]/20">
+                    <span className="text-white font-mono text-[11px] font-bold bg-slate-900/90 backdrop-blur-sm px-2.5 py-0.5 rounded-[2px] tracking-wider border border-slate-800">
                       {listing.priceRange}
                     </span>
                   </div>
@@ -356,7 +356,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                       <div className="grid grid-cols-2 gap-2 pt-0.5">
                         {listing.amenities.map((amenity, idx) => (
                           <div key={idx} className="flex items-center gap-1.5 text-[13px] text-[#374151]">
-                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#E31B23]" />
+                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-slate-500" />
                             <span className="truncate font-normal">{amenity}</span>
                           </div>
                         ))}
@@ -371,7 +371,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     </div>
                     <Button
                       onClick={onOpenConcierge}
-                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase border border-[#E31B23] hover:bg-[#E31B23] hover:text-white bg-transparent text-[#E31B23] rounded-[3px] px-4 cursor-pointer flex items-center gap-1.5 transition-all"
+                      className="h-9 text-[11px] font-mono font-bold tracking-wider uppercase bg-slate-900 hover:bg-slate-800 text-white rounded-[3px] px-4 cursor-pointer flex items-center gap-1.5 transition-all"
                     >
                       <Calendar className="h-3.5 w-3.5" />
                       <span>Book Showing</span>
@@ -389,20 +389,20 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {preConstructionDevelopments.map((dev, idx) => (
               <div
                 key={idx}
-                className="group rounded-lg border border-slate-200 bg-white p-6 shadow-2xs hover:shadow-md hover:border-[#E31B23]/40 transition-all flex flex-col justify-between space-y-6"
+                className="group rounded-lg border border-slate-200 bg-white p-6 shadow-2xs hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
                   <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
                     <div>
-                      <h3 className="font-extrabold text-[15px] text-[#111827] uppercase tracking-tight group-hover:text-[#E31B23] transition-colors">
+                      <h3 className="font-extrabold text-[15px] text-[#111827] uppercase tracking-tight group-hover:text-slate-950 group-hover:underline decoration-slate-300 transition-colors">
                         {dev.name}
                       </h3>
                       <div className="flex items-center gap-1 text-[11px] text-[#475569] font-mono mt-1">
-                        <MapPin className="h-3 w-3 shrink-0 text-[#E31B23]" />
+                        <MapPin className="h-3 w-3 shrink-0 text-slate-400" />
                         <span className="truncate max-w-[180px] font-semibold">{dev.address}</span>
                       </div>
                     </div>
-                    <Badge variant="outline" className="border-[#E31B23]/30 bg-[#E31B23]/5 text-[#E31B23] text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shrink-0 whitespace-nowrap">
+                    <Badge variant="outline" className="border-slate-200 bg-slate-50 text-slate-600 text-[8.5px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 shrink-0 whitespace-nowrap">
                       {dev.badge}
                     </Badge>
                   </div>
@@ -428,7 +428,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     onClick={onOpenConcierge}
                     className="w-full h-8.5 text-[10.5px] font-mono font-bold tracking-widest uppercase bg-[#111827] hover:bg-[#1f2937] text-white rounded-[3px] cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <Layers className="h-3.5 w-3.5 text-[#E31B23]" />
+                    <Layers className="h-3.5 w-3.5 text-slate-400" />
                     <span>Inquire Plans</span>
                   </Button>
                 </div>
@@ -443,7 +443,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {miamiSubmarkets.map((market, idx) => (
               <div
                 key={idx}
-                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-2xs hover:shadow-sm hover:border-[#E31B23]/30 transition-all flex flex-col justify-between"
+                className="group rounded-lg border border-slate-200 bg-white overflow-hidden shadow-2xs hover:shadow-sm hover:border-slate-300 transition-all flex flex-col justify-between"
               >
                 <div className="relative h-24 overflow-hidden bg-slate-900">
                   <img
@@ -496,7 +496,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 <div className="p-3 border-t border-slate-100 bg-slate-50/50">
                   <button
                     onClick={onOpenConcierge}
-                    className="w-full text-center text-[9px] font-mono font-bold uppercase tracking-wider text-[#E31B23] hover:text-[#111827] transition-colors cursor-pointer"
+                    className="w-full text-center text-[9px] font-mono font-bold uppercase tracking-wider text-slate-600 hover:text-slate-900 hover:underline transition-colors cursor-pointer"
                   >
                     Request Area Ledger &rarr;
                   </button>
@@ -511,7 +511,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       <section className="py-24 bg-white border-y border-slate-150 text-[#111827]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16 text-center max-w-xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E31B23]">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500">
               Discover Signature Collections
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#111827] uppercase tracking-tight">
@@ -527,7 +527,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <div
                 key={idx}
                 onClick={onOpenConcierge}
-                className="group cursor-pointer rounded-lg border border-slate-200 bg-[#FCFBFA] overflow-hidden hover:border-[#E31B23]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="group cursor-pointer rounded-lg border border-slate-200 bg-[#FCFBFA] overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -536,7 +536,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <Badge className="absolute top-3 right-3 bg-[#E31B23] text-white border-none text-[9.5px] font-mono font-bold px-2 py-0.5 tracking-wide">
+                  <Badge className="absolute top-3 right-3 bg-slate-900/90 text-white border border-slate-800 text-[9.5px] font-mono font-bold px-2 py-0.5 tracking-wide">
                     {col.count} Listings
                   </Badge>
                   <div className="absolute bottom-3 left-4 right-4">
@@ -549,9 +549,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                   <p className="text-[13px] text-[#374151] leading-relaxed font-normal line-clamp-3">
                     {col.description}
                   </p>
-                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono uppercase text-[#E31B23] font-bold tracking-wider group-hover:text-[#111827] transition-colors">
+                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[9.5px] font-mono uppercase text-slate-600 font-bold tracking-wider group-hover:text-[#111827] transition-colors">
                     <span>Curated by Valeria</span>
-                    <ArrowRight className="h-3.5 w-3.5 shrink-0 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#E31B23] group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
@@ -564,7 +564,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
       <section className="py-24 bg-[#111827] text-white border-b border-slate-800">
         <div className="max-w-5xl mx-auto px-4">
           <div className="mb-14 text-center max-w-xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E31B23]">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">
               Statewide Coverage Network
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white uppercase tracking-tight">
@@ -584,12 +584,12 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1F2937]/50 transition-all cursor-pointer text-left"
               >
                 <div className="flex items-center gap-3">
-                  <Building className="h-4 w-4 text-[#E31B23]" />
+                  <Building className="h-4 w-4 text-slate-400" />
                   <span className="text-sm font-bold uppercase tracking-wider font-mono">
                     Broward County Submarkets (Fort Lauderdale Focus)
                   </span>
                 </div>
-                {browardOpen ? <ChevronUp className="h-4 w-4 text-[#E31B23]" /> : <ChevronDown className="h-4 w-4 text-[#E31B23]" />}
+                {browardOpen ? <ChevronUp className="h-4 w-4 text-slate-400" /> : <ChevronDown className="h-4 w-4 text-slate-400" />}
               </button>
 
               {browardOpen && (
@@ -599,7 +599,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                       <div key={idx} className="p-3.5 rounded border border-[#1F2937] bg-slate-900 space-y-2">
                         <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
                           <span className="font-extrabold text-[12.5px] text-white tracking-tight truncate max-w-[140px]">{market.name}</span>
-                          <span className="text-[10px] font-mono font-bold text-[#E31B23]">{market.forSale} Listings</span>
+                          <span className="text-[10px] font-mono font-bold text-slate-300">{market.forSale} Listings</span>
                         </div>
                         <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
                           <span>Active Sale: <span className="text-white font-bold">{market.changeSale}</span></span>
@@ -623,12 +623,12 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1F2937]/50 transition-all cursor-pointer text-left"
               >
                 <div className="flex items-center gap-3">
-                  <Building className="h-4 w-4 text-[#E31B23]" />
+                  <Building className="h-4 w-4 text-slate-400" />
                   <span className="text-sm font-bold uppercase tracking-wider font-mono">
                     Palm Beach County Submarkets (Boca Raton & Wellington Focus)
                   </span>
                 </div>
-                {palmBeachOpen ? <ChevronUp className="h-4 w-4 text-[#E31B23]" /> : <ChevronDown className="h-4 w-4 text-[#E31B23]" />}
+                {palmBeachOpen ? <ChevronUp className="h-4 w-4 text-slate-400" /> : <ChevronDown className="h-4 w-4 text-slate-400" />}
               </button>
 
               {palmBeachOpen && (
@@ -638,14 +638,14 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                       <div key={idx} className="p-3.5 rounded border border-[#1F2937] bg-slate-900 space-y-2">
                         <div className="flex justify-between items-center border-b border-slate-800 pb-1.5">
                           <span className="font-extrabold text-[12.5px] text-white tracking-tight truncate max-w-[140px]">{market.name}</span>
-                          <span className="text-[10px] font-mono font-bold text-[#E31B23]">{market.forSale} Active</span>
+                          <span className="text-[10px] font-mono font-bold text-slate-300">{market.forSale} Active</span>
                         </div>
                         <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
                           <span>Active Sale: <span className="text-white font-bold">{market.changeSale}</span></span>
                           <span>Rentals: <span className="text-white font-bold">{market.forRent}</span></span>
                         </div>
                         <div className="flex justify-between text-[10.5px] font-mono text-[#94A3B8]">
-                          <span>Pending: <span className="text-[#E31B23] font-bold">{market.changePend}</span></span>
+                          <span>Pending: <span className="text-slate-300 font-bold">{market.changePend}</span></span>
                           <span>Sold: <span className="text-white font-bold">{market.sold} (7D)</span></span>
                         </div>
                       </div>
@@ -664,8 +664,8 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-16">
 
           {/* Left Column: Mighty Tall Widescreen Portrait Frame */}
-          <div className="lg:col-span-5 flex justify-center w-full">
-            <div className="relative w-full max-w-[340px] md:max-w-[400px] aspect-[4/5] rounded-lg overflow-hidden border-2 border-[#E31B23]/30 shadow-2xl bg-slate-100 group">
+          <div className="lg:col-span-6 flex justify-center w-full">
+            <div className="relative w-full max-w-[460px] aspect-[4/5] rounded-lg overflow-hidden border-2 border-slate-200/80 shadow-2xl bg-slate-100 group">
               <img
                 src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
                 alt="Valeria Afanasieva Portrait"
@@ -682,13 +682,13 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
           </div>
 
           {/* Right Column: Editorial Typographic Flow */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-6 space-y-6 text-left">
             <div className="space-y-3">
               <div className="flex flex-wrap gap-2">
                 <Badge className="bg-[#111827]/5 text-[#111827] border-slate-200 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
                   The Agency South Florida
                 </Badge>
-                <Badge className="bg-[#E31B23]/10 text-[#E31B23] border-[#E31B23]/20 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
+                <Badge className="bg-slate-100 text-slate-800 border-slate-200 text-[9px] font-mono uppercase tracking-widest px-3 py-1 font-bold">
                   EN · RU · UK
                 </Badge>
               </div>
@@ -696,7 +696,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#111827] uppercase tracking-tight leading-none font-sans">
                 Valeria Afanasieva
               </h2>
-              <p className="text-xs text-[#E31B23] font-mono uppercase tracking-widest font-bold border-b border-slate-100 pb-4">
+              <p className="text-[11px] text-[#475569] font-mono uppercase tracking-widest font-bold border-b border-slate-100 pb-4">
                 Real Estate Associate · Global Luxury Advisory Services
               </p>
             </div>
@@ -704,13 +704,13 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
             {/* Direct Work-iCloud Contact Bar */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 text-[13px] font-mono">
               <div className="flex items-center gap-2.5 p-3 rounded-md bg-white border border-slate-200 shadow-3xs">
-                <Mail className="h-4 w-4 text-[#E31B23] shrink-0" />
+                <Mail className="h-4 w-4 text-slate-400 shrink-0" />
                 <a href="mailto:valeria25.12@icloud.com" className="text-[#111827] font-bold hover:text-[#E31B23] transition-colors truncate">
                   valeria25.12@icloud.com
                 </a>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-md bg-white border border-slate-200 shadow-3xs">
-                <Phone className="h-4 w-4 text-[#E31B23] shrink-0" />
+                <Phone className="h-4 w-4 text-slate-400 shrink-0" />
                 <a href="tel:+17542927012" className="text-[#111827] font-bold hover:text-[#E31B23] transition-colors">
                   +1 (754) 292-7012
                 </a>
@@ -732,15 +732,15 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
 
             <div className="pt-2 flex flex-wrap gap-3">
               <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-[#E31B23]" />
+                <CheckCircle2 className="h-4 w-4 text-slate-500" />
                 <span>Pre-Construction</span>
               </span>
               <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-[#E31B23]" />
+                <CheckCircle2 className="h-4 w-4 text-slate-500" />
                 <span>Waterfront Estates</span>
               </span>
               <span className="flex items-center gap-1.5 text-xs text-[#111827] font-bold font-sans">
-                <CheckCircle2 className="h-4 w-4 text-[#E31B23]" />
+                <CheckCircle2 className="h-4 w-4 text-slate-500" />
                 <span>Off-Market Placement</span>
               </span>
             </div>
@@ -754,68 +754,9 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
                 <span>Consult Her Office</span>
               </Button>
               <div className="flex items-center gap-2 text-[10.5px] text-[#475569] font-mono uppercase tracking-wider font-semibold">
-                <Award className="h-5 w-5 text-[#E31B23] shrink-0" />
+                <Award className="h-5 w-5 text-slate-400 shrink-0" />
                 <span>Top-Tier Placement Advisor</span>
               </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* NEW: Bulletproof Florida IDX & MLS Legal Compliance Disclaimers Panel */}
-      <section className="bg-[#FCFBFA] border-t border-slate-200 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-8 text-left">
-
-          {/* MLS Badges Inline Grid */}
-          <div className="flex flex-wrap items-center gap-10 opacity-75 grayscale hover:grayscale-0 transition-all border-b border-slate-200 pb-6 justify-center sm:justify-start">
-            {/* miamire MLS logo inline SVG */}
-            <div className="flex items-center gap-2">
-              <svg className="h-8 w-auto text-[#111827]" viewBox="0 0 120 40" fill="currentColor">
-                <text x="5" y="25" fontFamily="sans-serif" fontWeight="900" fontSize="14" letterSpacing="1">MIAMI RE</text>
-                <text x="5" y="35" fontFamily="monospace" fontSize="8" letterSpacing="2">ASSOCIATE MLS</text>
-              </svg>
-            </div>
-
-            {/* beaches MLS logo inline SVG */}
-            <div className="flex items-center gap-2">
-              <svg className="h-8 w-auto text-[#111827]" viewBox="0 0 120 40" fill="currentColor">
-                <text x="5" y="25" fontFamily="serif" fontWeight="800" fontSize="15" letterSpacing="0.5">BeachesMLS</text>
-                <text x="5" y="35" fontFamily="monospace" fontSize="8" letterSpacing="1">INTEGRATION COMPLIANT</text>
-              </svg>
-            </div>
-
-            {/* Panda IDX compliance log */}
-            <div className="flex items-center gap-2">
-              <svg className="h-8 w-auto text-[#111827]" viewBox="0 0 120 40" fill="currentColor">
-                <text x="5" y="25" fontFamily="sans-serif" fontWeight="bold" fontSize="12" letterSpacing="0.5">PANDA IDX</text>
-                <text x="5" y="35" fontFamily="monospace" fontSize="8" letterSpacing="1.5">REAL-TIME MLS DATA</text>
-              </svg>
-            </div>
-          </div>
-
-          {/* Legal compliant texts - changed from uppercase to sentence case for maximum readability and luxury look */}
-          <div className="space-y-4 text-[11.5px] leading-relaxed text-[#475569] font-mono tracking-wide">
-            <p>
-              Miami RE MLS IDX information is provided exclusively for consumers' personal, non-commercial use, and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but not guaranteed. The listing broker's offer of compensation is made only to participants of the MLS where the listing is filed.
-            </p>
-            <p>
-              All listings featuring the BMLS logo are provided by Beaches MLS, Inc. This information is not verified for authenticity or accuracy and is not guaranteed. Copyright 2026 Beaches Multiple Listing Service, Inc. Information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. The listing broker's offer of compensation is made only to participants of the MLS where the listing is filed.
-            </p>
-            <p>
-              The listing database relating to real estate for sale, for rent or last sold on this website comes from and is provided here for consumers' personal, non-commercial use. It may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Real estate listings held by brokerage firms other than the office owning this website are marked. Database provided is deemed reliable but not guaranteed.
-            </p>
-          </div>
-
-          {/* Compliance foot indicator */}
-          <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-[10.5px] text-[#64748B] font-mono">
-            <div>Developed by Panda IDX Compliance Engine</div>
-            <div className="flex items-center gap-3">
-              <span>Privacy Policies</span>
-              <span>·</span>
-              <span>Terms of Use</span>
-              <span>·</span>
-              <span>Accessibility Standards</span>
             </div>
           </div>
 
