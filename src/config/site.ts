@@ -62,7 +62,7 @@ export const siteConfig: SiteConfig = {
   name: 'SoFlo Realty AI',
   badge: 'Miami Luxury Lead Engine v1.0',
   tagline: 'AI-Powered Lead Generation & Showing Engine for South Florida Luxury Agents',
-  description: 'Autonomous lead qualification, buyer/renter intent scoring, and instant VIP showing scheduler for Miami and South Florida luxury real estate.',
+  description: 'Autonomous lead qualification, buyer and renter intent scoring, and instant VIP showing scheduler for Miami and South Florida luxury real estate.',
   archetype: 'stripe',
   primaryNav: [
     { id: 'cockpit', label: 'Lead Operations Cockpit' },
@@ -240,3 +240,4 @@ export const siteConfig: SiteConfig = {
     ],
   },
 };
+

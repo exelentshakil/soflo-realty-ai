@@ -2,7 +2,7 @@
   "name": "soflo-realty-ai",
   "version": "1.0.0",
   "private": true,
-  "description": "Modular Social-Listening & Lead Discovery MVP for Musical Gear & Marketplace Intelligence",
+  "description": "AI-Powered Lead Generation & Showing Engine for South Florida Luxury Real Estate Agents",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
