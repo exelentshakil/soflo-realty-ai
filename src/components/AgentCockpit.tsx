@@ -100,7 +100,7 @@ export function AgentCockpit({
     "image": "https://valeria-miami.com/headshot.jpeg",
     "@id": "https://valeria-miami.com/#agent",
     "url": "https://valeria-miami.com",
-    "telephone": "+1-305-555-4848",
+    "telephone": "+1-754-276-7313",
     "priceRange": "$$$$",
     "address": {
       "@type": "PostalAddress",

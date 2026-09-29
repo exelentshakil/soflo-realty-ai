@@ -6,10 +6,8 @@ import {
   ArrowRight,
   Calendar,
   Compass,
-  Sparkles,
   Shield,
   TrendingUp,
-  Building2,
   CheckCircle2,
   MessageSquare,
 } from 'lucide-react';
@@ -71,7 +69,7 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         </div>
       </div>
 
-      {/* Floating Value Deck Quick Navigation (Scrubbed of Tech/Developer Jargon) */}
+      {/* Floating Value Deck Quick Navigation */}
       <div className="relative z-20 max-w-5xl mx-auto px-4 -mt-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 rounded-lg border border-[#C5A880]/30 bg-white shadow-xl">
           <div className="p-4 rounded-md hover:bg-[#FAF9F6] transition-colors flex items-start gap-4">
@@ -275,41 +273,53 @@ export function ClientPortal({ onOpenConcierge, onShowlisting }: ClientPortalPro
         </div>
       </section>
 
-      {/* Section 3: Valeria Profile (Scrubbed of Tech/Developer Jargon) */}
+      {/* Section 3: Valeria Profile (Scrubbed of Tech/Developer Jargon, High-fidelity) */}
       <section id="about" className="py-24 max-w-5xl mx-auto px-4 scroll-mt-16">
         <div className="rounded-lg border border-[#C5A880]/20 bg-white p-6 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-14 shadow-xs">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-sm overflow-hidden shrink-0 border border-[#C5A880]/20 shadow-sm relative bg-slate-100">
+          <div className="w-52 h-64 md:w-64 md:h-80 rounded-sm overflow-hidden shrink-0 border border-[#C5A880]/20 shadow-md relative bg-slate-100">
             <img
-              src="https://images.pexels.com/photos/3775119/pexels-photo-3775119.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
               alt="Valeria Afanasieva"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
 
           <div className="flex-1 space-y-5 text-left">
             <div className="space-y-1.5">
-              <Badge className="bg-[#0A2E2B]/5 hover:bg-[#0A2E2B]/10 text-[#0A2E2B] border-[#C5A880]/30 text-[9px] font-mono uppercase tracking-widest px-2.5 py-0.5">
-                Principal Advisory Services
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2E2B] uppercase tracking-tight">
+              <div className="flex flex-wrap gap-1.5 mb-1">
+                <Badge className="bg-[#0A2E2B]/5 text-[#0A2E2B] border-[#C5A880]/30 text-[8.5px] font-mono uppercase tracking-widest px-2 py-0.5">
+                  The Agency South Florida
+                </Badge>
+                <Badge className="bg-[#C5A880]/10 text-[#C5A880] border-[#C5A880]/30 text-[8.5px] font-mono uppercase tracking-widest px-2 py-0.5">
+                  EN · RU · UK
+                </Badge>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A2E2B] uppercase tracking-tight font-sans">
                 Valeria Afanasieva
               </h2>
-              <p className="text-[10.5px] text-[#C5A880] font-mono uppercase tracking-wider">
-                Global Luxury Real Estate Advisor · South Florida Focus
+              <p className="text-[10.5px] text-[#C5A880] font-mono uppercase tracking-wider font-bold">
+                Real Estate Associate · South Florida Luxury Advisor
               </p>
             </div>
 
-            <p className="text-[12.5px] text-[#556B69] leading-relaxed font-light font-sans">
-              With an elite track record in wealth relocations, off-market acquisitions, and luxury advisory, Valeria Afanasieva represents South Florida's most prestigious beachfront properties. Known for her uncompromising work ethic, local market mastery, and bespoke client advisory, Valeria ensures each property in her portfolio receives unparalleled placement. Her private client office provides a seamless, end-to-end concierge experience for buyers, renters, and international investors seeking to secure prime coastal assets in Miami.
-            </p>
+            <div className="space-y-4 text-[12.5px] text-[#556B69] leading-relaxed font-light font-sans">
+              <p>
+                Delve into the vibrant realm of Miami and Fort Lauderdale real estate, and one name inevitably shines bright - Valeria Afanasieva. Partnering with <span className="font-semibold text-[#0A2E2B]">The Agency</span>, Valeria has established herself as the definitive expert in pre-construction sales in South Florida's most sought-after locales.
+              </p>
+              <p>
+                Valeria's association with The Agency isn't just about a brand or a name. It's about synergy. Together, they bring to the table a harmonious blend of in-depth local insights, extensive market research, and cutting-edge sales strategies, all tailored to ensure clients receive not just a property, but a future home or investment that aligns perfectly with their visions and aspirations.
+              </p>
+              <p>
+                Clients consistently praise Valeria for her service. To her, it's not merely about closing deals; it's about forming lasting, trust-based partnerships.
+              </p>
+            </div>
 
             <div className="pt-2 flex flex-wrap gap-2">
               <Badge variant="outline" className="text-[9.5px] font-mono border-[#C5A880]/30 text-[#0A2E2B] px-2.5 py-0.5 uppercase tracking-wider">
-                $42M+ Closed Volume
+                Pre-Construction Specialist
               </Badge>
               <Badge variant="outline" className="text-[9.5px] font-mono border-[#C5A880]/30 text-[#0A2E2B] px-2.5 py-0.5 uppercase tracking-wider">
-                Beachfront Representation
+                Global Network Placements
               </Badge>
               <Badge variant="outline" className="text-[9.5px] font-mono border-[#C5A880]/30 text-[#0A2E2B] px-2.5 py-0.5 uppercase tracking-wider">
                 Bespoke Client Advisory

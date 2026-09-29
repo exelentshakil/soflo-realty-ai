@@ -62,17 +62,16 @@ export function Header({
     <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
-        {/* Left: Elite Rebrand Brand Text (Never overflows) */}
+        {/* Left: Elite Rebrand Brand Logo */}
         <a
           href={isAdmin ? "/admin" : "/"}
-          className="flex flex-col items-start shrink-0 cursor-pointer select-none text-left no-underline group"
+          className="flex items-center gap-3 shrink-0 cursor-pointer select-none text-left no-underline group"
         >
-          <span className="text-[14px] font-serif font-extrabold tracking-widest text-[var(--color-text-primary)] leading-none uppercase group-hover:text-[#C5A880] transition-colors">
-            Valeria Afanasieva
-          </span>
-          <span className="text-[9px] font-mono font-bold tracking-widest text-[#C5A880] uppercase mt-1 leading-none">
-            Luxury Real Estate
-          </span>
+          <img
+            src="https://media.pandaidx.com/_image?key=app%2F65368b3913315d8344407428%2Fsettings%2Flogo-second%2F83eb41c2-150a-422b-b75f-7836146b3379.png&w=640&q=75&f=auto"
+            alt="Valeria Afanasieva"
+            className="h-8 md:h-9 object-contain brightness-100 dark:brightness-0 dark:invert transition-all"
+          />
         </a>
 
         {/* CENTER SECTION */}

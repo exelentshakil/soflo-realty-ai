@@ -91,15 +91,15 @@ export function Footer() {
             <div className="space-y-3 text-[11.5px] text-[#A6C0BE] font-sans font-light">
               <div className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 text-[#C5A880] shrink-0" />
-                <span className="text-white font-medium">+1 (305) 555-4848</span>
+                <span className="text-white font-medium">+1 (754) 276-7313</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 text-[#C5A880] shrink-0" />
-                <span className="text-white truncate">valeria@afanasievagroup.com</span>
+                <span className="text-white truncate">valeria.a@theagencyre.com</span>
               </div>
               <div className="pt-2">
                 <div className="p-3.5 rounded bg-[#134441]/40 border border-[#134441] text-[11px] leading-relaxed text-[#A6C0BE] font-sans font-light">
-                  Affiliated with <span className="text-white font-semibold">Coldwell Banker Realty</span>. Representing South Florida's premier architectural and coastal residential assets.
+                  Affiliated with <span className="text-white font-semibold">The Agency</span>. Representing South Florida's premier architectural and coastal residential assets.
                 </div>
               </div>
             </div>
