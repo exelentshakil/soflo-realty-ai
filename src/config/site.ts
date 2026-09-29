@@ -59,10 +59,10 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   slug: 'soflo-realty-ai',
-  name: 'SoFlo Realty AI',
-  badge: 'Miami Luxury Lead Engine v1.0',
-  tagline: 'AI-Powered Lead Generation & Showing Engine for South Florida Luxury Agents',
-  description: 'Autonomous lead qualification, buyer and renter intent scoring, and instant VIP showing scheduler for Miami and South Florida luxury real estate.',
+  name: 'Valeria Afanasieva Group',
+  badge: 'Valeria Afanasieva Luxury Portfolio',
+  tagline: 'South Florida Luxury Beachfront Real Estate Portfolio',
+  description: 'Discover and consult on active luxury penthouses, beachfront vertical estates, and elite developments across Sunny Isles, Brickell, and Coral Gables with Global Luxury Advisor Valeria Afanasieva.',
   archetype: 'stripe',
   primaryNav: [
     { id: 'cockpit', label: 'Lead Operations Cockpit' },

@@ -269,14 +269,6 @@ Valeria's AI Concierge
 </div>
 </div>
 </div>
-<Button
-variant="ghost"
-size="sm"
-onClick={() => onOpenChange(false)}
-className="h-8 w-8 p-0 rounded-full hover:bg-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] cursor-pointer"
->
-<X className="h-4 w-4" />
-</Button>
 </SheetHeader>
 
 {/* Chat Messages */}

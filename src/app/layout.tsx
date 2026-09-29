@@ -26,7 +26,7 @@ export default function RootLayout({
         <link rel="preload" href="/sf-pro-display/SFPRODISPLAYREGULAR.OTF" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/sf-pro-display/SFPRODISPLAYMEDIUM.OTF" as="font" type="font/otf" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased selection:bg-[#533AFD]/20 selection:text-[#533AFD] dark:selection:text-[#7A68FF]">
+      <body className="min-h-screen bg-[var(--color-canvas)] text-[var(--color-text-primary)] antialiased selection:bg-[#C5A880]/20 selection:text-[#C5A880] dark:selection:text-[#C5A880]">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
