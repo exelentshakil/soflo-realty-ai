@@ -80,7 +80,7 @@ export function AiConciergeDrawer({
       textareaRef.current.style.height = 'auto';
       if (input) {
         const scrollHeight = textareaRef.current.scrollHeight;
-        textareaRef.current.style.height = `${Math.min(Math.max(scrollHeight, 44), 140)}px`;
+        textareaRef.current.style.height = `${Math.min(Math.max(scrollHeight, 56), 140)}px`;
         textareaRef.current.style.overflowY = scrollHeight > 140 ? 'auto' : 'hidden';
       } else {
         textareaRef.current.style.overflowY = 'hidden';
@@ -93,7 +93,7 @@ export function AiConciergeDrawer({
     const textarea = e.target;
     textarea.style.height = 'auto';
     const scrollHeight = textarea.scrollHeight;
-    textarea.style.height = `${Math.min(Math.max(scrollHeight, 44), 140)}px`;
+    textarea.style.height = `${Math.min(Math.max(scrollHeight, 56), 140)}px`;
     textarea.style.overflowY = scrollHeight > 140 ? 'auto' : 'hidden';
   };
 
@@ -392,7 +392,7 @@ className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] f
     onChange={handleInputChange}
     onKeyDown={handleKeyDown}
     placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
-    className="w-full min-h-[44px] max-h-[140px] text-[15px] sm:text-[15px] border border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus:bg-[var(--color-surface)] focus:ring-1 focus:ring-[#E31B23] focus:border-[#E31B23] rounded-[10px] px-4 py-2.5 pr-3 shadow-2xs text-slate-900 dark:text-slate-100 leading-normal resize-none overflow-x-hidden overflow-y-hidden whitespace-pre-wrap break-words outline-none transition-all"
+    className="w-full min-h-[56px] max-h-[140px] text-[15px] sm:text-[15px] border border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus:bg-[var(--color-surface)] focus:ring-1 focus:ring-[#E31B23] focus:border-[#E31B23] rounded-[10px] px-4 py-3.5 pr-3 shadow-2xs text-slate-900 dark:text-slate-100 leading-normal resize-none overflow-x-hidden overflow-y-hidden whitespace-pre-wrap break-words outline-none transition-all"
     style={{ fontFamily: "'sohne-var', 'Sohne', 'SF Pro Display', -apple-system, sans-serif", letterSpacing: "-0.015em" }}
     disabled={loading}
   />
