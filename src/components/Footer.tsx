@@ -19,15 +19,13 @@ export function Footer() {
           {/* Column 1: Brand & Bio */}
           <div className="space-y-4">
             <div className="flex flex-col">
-              <div className="mb-4 self-start">
-                <div className="bg-[#E31B23] px-5 py-3 rounded-[3px] inline-flex items-center justify-center shadow-md">
-                  <img
-                    src="https://media.pandaidx.com/_image?key=app%2F65368b3913315d8344407428%2Fgeneral%2F1776877572564-logo-print.png&w=640&q=75&f=auto"
-                    alt="The Agency Logo"
-                    className="h-7 w-auto object-contain"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                  />
-                </div>
+              <div className="mb-5 self-start">
+                <img
+                  src="https://media.pandaidx.com/_image?key=app%2F65368b3913315d8344407428%2Fsettings%2Flogo-second%2F83eb41c2-150a-422b-b75f-7836146b3379.png&w=640&q=75&f=auto"
+                  alt="Valeria Afanasieva Logo"
+                  className="h-10 md:h-11 w-auto object-contain"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
               </div>
               <span className="text-[15px] font-sans font-extrabold tracking-widest uppercase text-[#E31B23]">
                 Valeria Afanasieva
