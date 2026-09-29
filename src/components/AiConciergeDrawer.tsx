@@ -283,7 +283,7 @@ Valeria's AI Concierge
 {/* Chat Messages */}
 <div className="flex-1 min-h-0 bg-[var(--color-canvas)]">
 <ScrollArea className="h-full px-4 py-4">
-<div className="space-y-4">
+<div className="space-y-5">
 {messages.map(msg => (
 <div
 key={msg.id}
@@ -291,9 +291,9 @@ className={`flex w-full ${
 msg.role === 'user' ? 'justify-end' : 'justify-start'
 }`}
 >
-<div className="flex gap-2 max-w-[85%]">
+<div className="flex gap-2.5 max-w-[88%]">
 {msg.role === 'assistant' && (
-  <div className="h-7 w-7 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-0.5 bg-slate-100">
+  <div className="h-8.5 w-8.5 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-1 bg-slate-100">
     <img
       src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
       alt="Valeria Assistant"
@@ -303,10 +303,10 @@ msg.role === 'user' ? 'justify-end' : 'justify-start'
 )}
 <div className="flex flex-col space-y-1">
 <div
-className={`rounded-xl px-3.5 py-2 text-[13px] leading-relaxed shadow-3xs ${
+className={`rounded-xl px-4 py-2.5 text-[15.5px] leading-relaxed shadow-3xs font-sans ${
 msg.role === 'user'
-? 'bg-[#E31B23] text-white border border-[#E31B23]/20 rounded-tr-xs'
-: 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] rounded-tl-xs'
+? 'bg-[#E31B23] text-white border border-[#E31B23]/20 rounded-tr-xs font-semibold'
+: 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-900 dark:text-white font-medium rounded-tl-xs'
 }`}
 >
 <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -322,17 +322,17 @@ msg.role === 'user'
 ))}
 {loading && (
 <div className="flex w-full justify-start">
-<div className="flex gap-2 max-w-[85%]">
-<div className="h-7 w-7 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-0.5 animate-pulse bg-slate-100">
+<div className="flex gap-2.5 max-w-[88%]">
+<div className="h-8.5 w-8.5 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-1 animate-pulse bg-slate-100">
   <img
     src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
     alt="Valeria Assistant"
     className="h-full w-full object-cover object-top"
   />
 </div>
-<div className="rounded-xl px-3.5 py-2 text-[13px] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-muted)] rounded-tl-xs shadow-3xs flex items-center gap-1.5 font-mono">
-<span className="h-1.5 w-1.5 rounded-full bg-slate-400 animate-ping"></span>
-<span>AI is thinking...</span>
+<div className="rounded-xl px-4 py-2.5 text-[14px] bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-800 rounded-tl-xs shadow-3xs flex items-center gap-2 font-sans font-medium">
+<span className="h-2 w-2 rounded-full bg-slate-500 animate-ping"></span>
+<span>AI is typing...</span>
 </div>
 </div>
 </div>
@@ -351,16 +351,16 @@ className="p-3 border-t border-[var(--color-border)] bg-[var(--color-surface)] f
 value={input}
 onChange={e => setInput(e.target.value)}
 placeholder="Ask about Sunny Isles Beach, Brickell, budget..."
-className="flex-1 h-9.5 text-xs sm:text-[13px] border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus-visible:bg-[var(--color-surface)] focus-visible:ring-1 focus-visible:ring-[#E31B23] focus-visible:border-[#E31B23] rounded-[4px] px-3 shadow-2xs"
+className="flex-1 h-11 text-[15px] sm:text-[15px] border-[var(--color-border)] bg-[var(--color-panel-subtle)] focus-visible:bg-[var(--color-surface)] focus-visible:ring-1 focus-visible:ring-[#E31B23] focus-visible:border-[#E31B23] rounded-[6px] px-3 shadow-2xs font-sans text-slate-900"
 disabled={loading}
 />
 <Button
 type="submit"
 size="sm"
 disabled={loading || !input.trim()}
-className="h-9.5 w-9.5 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[4px] shadow-2xs cursor-pointer shrink-0"
+className="h-11 w-11 p-0 bg-[#E31B23] hover:bg-[#C62828] text-white rounded-[6px] shadow-2xs cursor-pointer shrink-0"
 >
-<Send className="h-4 w-4" />
+<Send className="h-4.5 w-4.5" />
 </Button>
 </form>
 </SheetContent>

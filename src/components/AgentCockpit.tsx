@@ -878,16 +878,16 @@ export function AgentCockpit({
               {/* Tab 2: AI Conversation Log / Transcript */}
               {sheetTab === 'chat' && (
                 <div className="space-y-4 pt-1">
-                  <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] p-3 max-h-[420px] overflow-y-auto space-y-3.5 shadow-inner">
+                  <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] p-3.5 max-h-[440px] overflow-y-auto space-y-4 shadow-inner">
                     {selectedRow.payload.chat_history ? (
                       (selectedRow.payload.chat_history as any[]).map((msg, idx) => (
                         <div
                           key={msg.id || idx}
                           className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                         >
-                          <div className="flex gap-2 max-w-[85%]">
+                          <div className="flex gap-2.5 max-w-[88%]">
                             {msg.role === 'assistant' && (
-                              <div className="h-6.5 w-6.5 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs bg-slate-100">
+                              <div className="h-8 w-8 rounded-full overflow-hidden border border-slate-200 shrink-0 shadow-3xs mt-1 bg-slate-100">
                                 <img
                                   src="https://media.pandaidx.com/_image?key=users%2F65368b2f445db5143fcec5a2%2Favatar%2F1776880400744-val.png&w=1080&q=90&f=auto"
                                   alt="Valeria Assistant"
@@ -900,10 +900,10 @@ export function AgentCockpit({
                                 {msg.role === 'user' ? 'Prospect' : "Valeria's AI Concierge"}
                               </span>
                               <div
-                                className={`rounded-lg px-3 py-1.5 text-xs leading-relaxed shadow-3xs ${
+                                className={`rounded-xl px-3.5 py-2 text-[14.5px] leading-relaxed shadow-3xs ${
                                   msg.role === 'user'
-                                    ? 'bg-[#E31B23] text-white rounded-tr-none'
-                                    : 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-[var(--color-text-primary)] rounded-tl-none'
+                                    ? 'bg-[#E31B23] text-white rounded-tr-none font-semibold'
+                                    : 'bg-[var(--color-surface)] border border-[var(--color-border-subtle)] text-slate-900 dark:text-white font-medium rounded-tl-none'
                                 }`}
                               >
                                 <p className="whitespace-pre-wrap">{msg.content}</p>
