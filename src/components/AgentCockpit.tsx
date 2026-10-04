@@ -61,6 +61,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { siteConfig, type TableRow as RowType } from '@/config/site';
+import { luxuryListings } from '@/config/listings';
 
 interface AgentCockpitProps {
   leads: RowType[];
@@ -77,13 +78,51 @@ export function AgentCockpit({
 }: AgentCockpitProps) {
   const [selectedRow, setSelectedRow] = useState<RowType | null>(null);
   const [copiedPayload, setCopiedPayload] = useState(false);
-  const [activeTab, setActiveTab] = useState<'leads' | 'ghl' | 'geo'>('leads');
+  const [activeTab, setActiveTab] = useState<'leads' | 'ghl' | 'geo' | 'roi'>('leads');
   const [sheetTab, setSheetTab] = useState<'profile' | 'chat' | 'payload'>('profile');
   const [mounted, setMounted] = useState(false);
+
+  // States for Conversational GEO Search Simulator
+  const [geoQuery, setGeoQuery] = useState<string | null>(null);
+  const [geoLogs, setGeoLogs] = useState<string[]>([]);
+  const [geoResult, setGeoResult] = useState<any | null>(null);
+  const [geoSimulating, setGeoSimulating] = useState(false);
+
+  // States for ROI Savings Calculator
+  const [weeklyLeads, setWeeklyLeads] = useState<number>(40);
+  const [manualCost, setManualCost] = useState<number>(45);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const runGeoCrawl = (query: string, listingId: string) => {
+    if (geoSimulating) return;
+    setGeoQuery(query);
+    setGeoResult(null);
+    setGeoSimulating(true);
+    setGeoLogs([]);
+
+    const steps = [
+      { delay: 0, text: `[INFO] Parsing NLP Query: "${query}" using text-embedding-3-small...` },
+      { delay: 400, text: `[SUCCESS] Contextual intent matched to: LUXURY_RESIDENTIAL_INDEX` },
+      { delay: 800, text: `[INFO] Extracted search weights:\n   - Query Term: "${query}"\n   - Cosine threshold: >= 0.85` },
+      { delay: 1200, text: `[INFO] Accessing local vectorized property index...` },
+      { delay: 1600, text: `[INFO] Executing ST_DWithin PostGIS boundary proximity calculations...` },
+      { delay: 2000, text: `[SUCCESS] Matched 1 property with similarity 0.963.\n[INFO] Synchronizing records & dispatching live card...` }
+    ];
+
+    steps.forEach((step) => {
+      setTimeout(() => {
+        setGeoLogs(prev => [...prev, step.text]);
+        if (step.delay === 2000) {
+          const matched = luxuryListings.find(l => l.id === listingId);
+          setGeoResult(matched || null);
+          setGeoSimulating(false);
+        }
+      }, step.delay);
+    });
+  };
 
   useEffect(() => {
     if (selectedRow) {
@@ -410,10 +449,10 @@ export function AgentCockpit({
 
       {/* Command Control Subheader */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-[var(--color-border)] pb-3.5 gap-3">
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar w-full sm:w-auto shrink-0">
           <button
             onClick={() => setActiveTab('leads')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer transition-colors ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer whitespace-nowrap transition-colors ${
               activeTab === 'leads'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
                 : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-panel-subtle)]'
@@ -423,7 +462,7 @@ export function AgentCockpit({
           </button>
           <button
             onClick={() => setActiveTab('ghl')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer transition-colors ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer whitespace-nowrap transition-colors ${
               activeTab === 'ghl'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
                 : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-panel-subtle)]'
@@ -433,13 +472,23 @@ export function AgentCockpit({
           </button>
           <button
             onClick={() => setActiveTab('geo')}
-            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer transition-colors ${
+            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer whitespace-nowrap transition-colors ${
               activeTab === 'geo'
                 ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
                 : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-panel-subtle)]'
             }`}
           >
             GEO Search Indexing
+          </button>
+          <button
+            onClick={() => setActiveTab('roi')}
+            className={`px-3 py-1.5 text-xs font-semibold rounded-[4px] cursor-pointer whitespace-nowrap transition-colors ${
+              activeTab === 'roi'
+                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
+                : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-panel-subtle)]'
+            }`}
+          >
+            ROI & Savings Calculator
           </button>
         </div>
 
@@ -654,9 +703,9 @@ export function AgentCockpit({
 
       {/* View 3: GEO Traffic Search Indexing */}
       {activeTab === 'geo' && (
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          {/* Left Panel: Search queries and citations */}
-          <div className="md:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          {/* Left Panel: SEO metrics and Schema */}
+          <div className="lg:col-span-2 space-y-6">
             {/* Share of Voice */}
             <Card className="border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs">
               <CardHeader className="p-4 border-b border-[var(--color-border)]">
@@ -699,72 +748,376 @@ export function AgentCockpit({
               </CardContent>
             </Card>
 
-            {/* Active search queries */}
+            {/* JSON-LD Schema Card */}
             <Card className="border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs">
-              <CardHeader className="p-4 border-b border-[var(--color-border)]">
-                <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
-                  Top Citing Conversational Queries
-                </CardTitle>
-                <CardDescription className="text-[11px] text-[var(--color-text-secondary)]">
-                  Real search phrases where AI crawls and cites Valeria's website directly.
-                </CardDescription>
+              <CardHeader className="p-4 border-b border-[var(--color-border)] flex flex-row items-center justify-between">
+                <div>
+                  <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
+                    SEO Structured Schema
+                  </CardTitle>
+                  <CardDescription className="text-[11px] text-[var(--color-text-secondary)]">
+                    JSON-LD metadata injected to feed active search crawlers.
+                  </CardDescription>
+                </div>
+                <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 text-[10px] font-mono px-1.5 py-0">
+                  Live
+                </Badge>
               </CardHeader>
-              <CardContent className="p-4 space-y-2.5 text-xs font-mono text-[var(--color-text-secondary)]">
-                <div className="flex items-start gap-2 border-b border-[var(--color-border-subtle)] pb-2.5">
-                  <Search className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-[var(--color-text-primary)]">"best luxury agent Sunny Isles Beach"</p>
-                    <p className="text-[10px] text-[#057A55] mt-0.5 font-bold">Citations: Perplexity • ChatGPT Search</p>
+              <CardContent className="p-4">
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between text-xs font-mono font-bold text-[var(--color-text-primary)]">
+                    <div className="flex items-center gap-1.5">
+                      <FileJson className="h-4 w-4 text-[#533AFD]" />
+                      <span>schema.json-ld</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-2 border-b border-[var(--color-border-subtle)] pb-2.5">
-                  <Search className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-[var(--color-text-primary)]">"oceanfront Armani Casa residences miami"</p>
-                    <p className="text-[10px] text-[#057A55] mt-0.5 font-bold">Citations: Perplexity • Gemini Search</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Search className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-[var(--color-text-primary)]">"supertall waldorf astoria residences downtown"</p>
-                    <p className="text-[10px] text-[#057A55] mt-0.5 font-bold">Citations: ChatGPT Search • Claude</p>
-                  </div>
+                  <pre className="rounded-lg border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-3.5 text-[10.5px] font-mono text-[var(--color-text-primary)] overflow-x-auto max-h-[180px] leading-relaxed scrollbar-thin">
+                    {JSON.stringify(schemaSnippet, null, 2)}
+                  </pre>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Right Panel: JSON-LD code editor */}
-          <Card className="md:col-span-3 border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs flex flex-col">
-            <CardHeader className="p-4 border-b border-[var(--color-border)] flex flex-row items-center justify-between">
-              <div>
-                <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
-                  JSON-LD Structural Schema Markup
-                </CardTitle>
-                <CardDescription className="text-[11.5px] text-[var(--color-text-secondary)]">
-                  Direct code snippet injected on her domain to feed crawl bots high-fidelity structured directories.
-                </CardDescription>
-              </div>
-              <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 text-[10px] font-mono">
-                Indexable
-              </Badge>
-            </CardHeader>
-            <CardContent className="p-4 flex-1">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs font-mono font-bold text-[var(--color-text-primary)]">
-                  <div className="flex items-center gap-1.5">
-                    <FileJson className="h-4 w-4 text-[#533AFD]" />
-                    <span>schema.json-ld</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400">Head Metadata Script Injection</span>
+          {/* Right Panel: Interactive MLS Indexing and Search Crawler Simulator */}
+          <Card className="lg:col-span-3 border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs flex flex-col">
+            <CardHeader className="p-4 border-b border-[var(--color-border)]">
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
+                    MLS Vector Index & Crawler Simulator
+                  </CardTitle>
+                  <CardDescription className="text-[11.5px] text-[var(--color-text-secondary)]">
+                    Simulate real-time conversational search queries crawling and matching indexed luxury listings.
+                  </CardDescription>
                 </div>
-                <pre className="rounded-xl border border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-4 text-[11px] font-mono text-[var(--color-text-primary)] overflow-x-auto max-h-[380px] leading-relaxed">
-                  {JSON.stringify(schemaSnippet, null, 2)}
-                </pre>
+                <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 text-[10px] font-mono px-1.5 py-0">
+                  Ready
+                </Badge>
               </div>
+            </CardHeader>
+            <CardContent className="p-4 space-y-4 flex-1 flex flex-col justify-between">
+              <div className="space-y-3.5">
+                {/* Query Selector */}
+                <div>
+                  <label className="text-[11px] font-mono font-bold uppercase text-[var(--color-text-secondary)] tracking-wider">
+                    Select Sample Conversational Query
+                  </label>
+                  <div className="grid grid-cols-1 gap-2 mt-2">
+                    <button
+                      onClick={() => runGeoCrawl('beachfront 3-bed with private car lift', 'list-porsche')}
+                      disabled={geoSimulating}
+                      className={`w-full text-left px-3.5 py-2.5 rounded-[6px] border text-xs font-mono transition-all flex items-center justify-between group cursor-pointer ${
+                        geoQuery === 'beachfront 3-bed with private car lift'
+                          ? 'bg-[#E31B23]/5 border-[#E31B23]/30 text-[#E31B23]'
+                          : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-panel-subtle)] text-[var(--color-text-primary)]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Search className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#E31B23]" />
+                        <span>"beachfront 3-bed with private car lift"</span>
+                      </div>
+                      <ChevronRight className="h-3 w-3 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                    <button
+                      onClick={() => runGeoCrawl('Brickell penthouse under $5M with bay views', 'list-cipriani')}
+                      disabled={geoSimulating}
+                      className={`w-full text-left px-3.5 py-2.5 rounded-[6px] border text-xs font-mono transition-all flex items-center justify-between group cursor-pointer ${
+                        geoQuery === 'Brickell penthouse under $5M with bay views'
+                          ? 'bg-[#E31B23]/5 border-[#E31B23]/30 text-[#E31B23]'
+                          : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-panel-subtle)] text-[var(--color-text-primary)]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Search className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#E31B23]" />
+                        <span>"Brickell penthouse under $5M with bay views"</span>
+                      </div>
+                      <ChevronRight className="h-3 w-3 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                    <button
+                      onClick={() => runGeoCrawl('oceanfront 2 to 4 bed Sunny Isles Beach', 'list-armani')}
+                      disabled={geoSimulating}
+                      className={`w-full text-left px-3.5 py-2.5 rounded-[6px] border text-xs font-mono transition-all flex items-center justify-between group cursor-pointer ${
+                        geoQuery === 'oceanfront 2 to 4 bed Sunny Isles Beach'
+                          ? 'bg-[#E31B23]/5 border-[#E31B23]/30 text-[#E31B23]'
+                          : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-panel-subtle)] text-[var(--color-text-primary)]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <Search className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#E31B23]" />
+                        <span>"oceanfront 2 to 4 bed Sunny Isles Beach"</span>
+                      </div>
+                      <ChevronRight className="h-3 w-3 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Terminal Console Output */}
+                {(geoLogs.length > 0 || geoSimulating) && (
+                  <div className="rounded-[8px] overflow-hidden border border-slate-800 bg-slate-950 font-mono shadow-md text-slate-300">
+                    <div className="flex items-center justify-between px-3.5 py-2 bg-slate-900 border-b border-slate-800 text-[10px] text-slate-400 select-none">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
+                        <span className="h-2.5 w-2.5 rounded-full bg-green-500"></span>
+                      </div>
+                      <span>conversational-crawler-terminal</span>
+                    </div>
+                    <div className="p-3.5 text-[11px] leading-relaxed space-y-1.5 max-h-[160px] overflow-y-auto font-mono scrollbar-thin">
+                      {geoLogs.map((log, index) => (
+                        <div key={index} className="whitespace-pre-wrap">
+                          {log.startsWith('[SUCCESS]') ? (
+                            <span className="text-emerald-400 font-bold">{log}</span>
+                          ) : log.startsWith('[ERROR]') ? (
+                            <span className="text-red-400 font-bold">{log}</span>
+                          ) : (
+                            <span className="text-slate-300">{log}</span>
+                          )}
+                        </div>
+                      ))}
+                      {geoSimulating && (
+                        <div className="flex items-center gap-1 text-[#E31B23] animate-pulse">
+                          <span>$</span>
+                          <span className="h-3.5 w-1 bg-[#E31B23] animate-ping"></span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Matched Property Card Output */}
+              {geoResult && !geoSimulating && (
+                <div className="mt-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden shadow-xs flex flex-col sm:flex-row animate-fadeIn">
+                  <div className="relative w-full sm:w-40 h-40 sm:h-auto shrink-0 overflow-hidden bg-slate-100">
+                    <img
+                      src={geoResult.image}
+                      alt={geoResult.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                  <div className="p-4 flex-1 flex flex-col justify-between space-y-3 text-xs">
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="font-serif font-extrabold text-[15px] text-[#0A2E2B] dark:text-white leading-tight">
+                          {geoResult.name}
+                        </h4>
+                        <Badge className="bg-[#E31B23] hover:bg-[#E31B23] text-white text-[9px] font-mono font-bold px-2 py-0.5 rounded">
+                          Matched citation
+                        </Badge>
+                      </div>
+                      <div className="flex items-center gap-1 text-[var(--color-text-secondary)] text-[10px] font-mono">
+                        <MapPin className="h-3 w-3 text-slate-400" />
+                        <span>{geoResult.neighborhood}</span>
+                      </div>
+                      <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">
+                        {geoResult.description}
+                      </p>
+                      <div className="pt-1.5 flex flex-wrap gap-1.5">
+                        {geoResult.amenities.slice(0, 3).map((amenity: string, idx: number) => (
+                          <Badge key={idx} variant="outline" className="border-slate-200 text-slate-600 text-[9.5px] font-mono bg-slate-50 px-1.5 py-0">
+                            {amenity}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="pt-2.5 border-t border-[var(--color-border-subtle)] flex items-center justify-between">
+                      <div className="space-y-0.5">
+                        <span className="text-[10px] text-[var(--color-text-muted)] font-mono uppercase tracking-wider block leading-none">Price Range</span>
+                        <span className="font-mono font-bold text-sm text-[#057A55]">
+                          {geoResult.priceRange}
+                        </span>
+                      </div>
+                      <Button
+                        size="sm"
+                        className="h-7 text-[10.5px] bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-[4px] px-2.5 cursor-pointer flex items-center gap-1 shrink-0"
+                        onClick={() => {
+                          alert(`Custom simulation citation dispatched. In an actual client deployment, selecting this property automatically pulls lead qualification parameters and schedules a private tour directly on your FUB / Lofty calendar.`);
+                        }}
+                      >
+                        <Calendar className="h-3.5 w-3.5" />
+                        <span>Schedule FUB Tour</span>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {!geoResult && !geoSimulating && (
+                <div className="rounded-[8px] border border-dashed border-[var(--color-border)] bg-[var(--color-panel-subtle)] p-8 text-center flex flex-col items-center justify-center space-y-2 mt-4">
+                  <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center">
+                    <Search className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <p className="text-xs font-semibold text-[var(--color-text-primary)]">No query simulated yet</p>
+                  <p className="text-[10.5px] text-[var(--color-text-secondary)] max-w-sm leading-normal">
+                    Select one of the conversational NLP searches above to run the real-time crawl, semantic scoring, and index matching engine.
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
+        </div>
+      )}
+
+      {/* View 4: ROI & Savings Calculator */}
+      {activeTab === 'roi' && (
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          {/* Left Panel: Inputs and Sliders */}
+          <div className="lg:col-span-3 space-y-6">
+            <Card className="border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs">
+              <CardHeader className="p-4.5 border-b border-[var(--color-border)]">
+                <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
+                  Volume & Overhead Settings
+                </CardTitle>
+                <CardDescription className="text-[11.5px] text-[var(--color-text-secondary)] mt-0.5">
+                  Adjust inputs to see how automated qualification eliminates agency labor and increases conversions.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-5.5 space-y-6.5">
+                {/* Weekly Leads Slider */}
+                <div className="space-y-2.5">
+                  <div className="flex justify-between items-center text-xs font-mono">
+                    <span className="font-semibold text-[var(--color-text-primary)] uppercase tracking-wider">Weekly Inbound Leads</span>
+                    <span className="font-bold text-[#E31B23] text-sm bg-[#E31B23]/5 border border-[#E31B23]/10 rounded px-2.5 py-0.5">
+                      {weeklyLeads} leads / week
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="5"
+                    max="200"
+                    step="5"
+                    value={weeklyLeads}
+                    onChange={(e) => setWeeklyLeads(Number(e.target.value))}
+                    className="w-full accent-[#E31B23] cursor-pointer h-1.5 bg-slate-100 rounded-lg appearance-none"
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-400 font-mono">
+                    <span>5 leads</span>
+                    <span>100 leads</span>
+                    <span>200 leads</span>
+                  </div>
+                </div>
+
+                {/* Manual Cost Slider */}
+                <div className="space-y-2.5">
+                  <div className="flex justify-between items-center text-xs font-mono">
+                    <span className="font-semibold text-[var(--color-text-primary)] uppercase tracking-wider">Manual Qualification Overhead</span>
+                    <span className="font-bold text-[#057A55] text-sm bg-emerald-50 border border-emerald-100 rounded px-2.5 py-0.5">
+                      ${manualCost} / lead
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="10"
+                    max="150"
+                    step="5"
+                    value={manualCost}
+                    onChange={(e) => setManualCost(Number(e.target.value))}
+                    className="w-full accent-[#057A55] cursor-pointer h-1.5 bg-slate-100 rounded-lg appearance-none"
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-400 font-mono">
+                    <span>$10 / lead</span>
+                    <span>$80 / lead</span>
+                    <span>$150 / lead</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Explanatory Context Card */}
+            <Card className="border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs">
+              <CardHeader className="p-4 border-b border-[var(--color-border)]">
+                <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
+                  Why Manual Qualification Voids Commission
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 space-y-3.5 text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                <p>
+                  High-volume agents and teams waste dozens of hours playing cold phone tag, vetting buyer timelines, and chasing down proof of funds. This leads to massive overhead, missed VIP prospects, and leaked commissions.
+                </p>
+                <p>
+                  Our bespoke AI Concierge sits on high-end real estate web applications and runs 24/7. It qualifies buyers, verifies budgets, handles proof-of-funds self-certification, and schedules showings directly in your Follow Up Boss calendar. You get qualified, verified leads sent straight to your CRM without the manual grind.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Right Panel: Financial Output and Metrics */}
+          <div className="lg:col-span-2 space-y-6">
+            <Card className="border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs flex flex-col justify-between">
+              <CardHeader className="p-4 border-b border-[var(--color-border)]">
+                <CardTitle className="text-sm font-bold text-[var(--color-text-primary)]">
+                  Simulated Financial Return
+                </CardTitle>
+                <CardDescription className="text-[11px] text-[var(--color-text-secondary)]">
+                  Comparing current manual labor against automated AI Concierge subscription.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-4.5 space-y-4">
+                {/* Net Savings Box */}
+                <div className="rounded-[8px] bg-[#057A55]/10 border border-[#057A55]/20 p-4 text-center space-y-1">
+                  <span className="text-[10px] font-mono font-bold text-[#057A55] uppercase tracking-wider">
+                    Net Monthly Savings
+                  </span>
+                  <div className="text-3xl font-bold font-serif text-[#057A55]">
+                    ${(Math.round(weeklyLeads * 4.33) * manualCost - (300 + Math.round(weeklyLeads * 4.33 * 0.12))).toLocaleString()}
+                  </div>
+                  <span className="text-[10px] text-slate-500 font-mono block">
+                    Saved from manual filtering overhead
+                  </span>
+                </div>
+
+                {/* KPI Breakdown */}
+                <div className="space-y-3.5 font-mono pt-2">
+                  <div className="flex justify-between items-center text-xs border-b border-[var(--color-border-subtle)] pb-2.5">
+                    <span className="text-[var(--color-text-secondary)]">Estimated Volume</span>
+                    <span className="font-bold text-[var(--color-text-primary)]">
+                      {Math.round(weeklyLeads * 4.33)} leads / mo
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs border-b border-[var(--color-border-subtle)] pb-2.5">
+                    <span className="text-[var(--color-text-secondary)]">Current Manual Cost</span>
+                    <span className="font-bold text-red-600">
+                      ${(Math.round(weeklyLeads * 4.33) * manualCost).toLocaleString()} / mo
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs border-b border-[var(--color-border-subtle)] pb-2.5">
+                    <span className="text-[var(--color-text-secondary)]">AI Concierge Cost</span>
+                    <span className="font-bold text-[#533AFD]">
+                      ${(300 + Math.round(weeklyLeads * 4.33 * 0.12)).toLocaleString()} / mo
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs pb-1">
+                    <span className="text-[var(--color-text-secondary)]">Estimated ROI</span>
+                    <div className="flex items-center gap-1 font-bold text-[#057A55]">
+                      <TrendingUp className="h-3.5 w-3.5" />
+                      <span>
+                        {Math.round(
+                          ((Math.round(weeklyLeads * 4.33) * manualCost - (300 + Math.round(weeklyLeads * 4.33 * 0.12))) /
+                            (300 + Math.round(weeklyLeads * 4.33 * 0.12))) *
+                            100
+                        ).toLocaleString()}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Call to Action Pitch Button */}
+                <div className="pt-3.5">
+                  <Button
+                    onClick={() => {
+                      alert(`Inbound demonstration request captured! This button links directly to your strategy scheduler or GoHighLevel lead capture sequence, letting luxury real estate prospects book their onboarding session instantly.`);
+                    }}
+                    className="w-full py-5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-[6px] tracking-wider uppercase transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Deploy Pilot Trial</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
 
